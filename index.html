@@ -13,7 +13,7 @@
      <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
      <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
 
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/small-screen.css">
     <link rel="stylesheet" href="styles/large-screen.css">
     <link rel="icon" href="favicon.ico">
@@ -24,39 +24,70 @@
 <body>
     <header>
         <img src="images/profile.jpg" alt="Profile Picture">
-        <h1>Leonardo Lucas</h1>
-        <button id="menu-toggle">☰</button>
-    </header>
+        <h1>Leonardo da Silva Pereira de Lucas</h1>
 
-    <nav id="nav-menu">
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="chamber/directory.html">Chamber</a></li>
-            <li><a href="#">GitHub Profile</a></li>
-            <li><a href="#">LinkedIn</a></li>
-        </ul>
-    </nav>
+        <button id="menu">☰</button>
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="chamber/directory.html">Chamber</a></li>
+                <li><a href="https://github.com/leospdlucas">GitHub Profile</a></li>
+                <li><a href="https://www.linkedin.com/in/leonardospdlucas/">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <h1>Home</h1>
+
         <section>
-            <h2>Introduction</h2>
-            <p>Welcome to the WDD 231 Course Home Page!</p>
+            <div id="course-work">
+                <h2>Course Work</h2>
+            </div>
+
+            <div>
+                <h1>.</h1>
+                <h1>.</h1>
+                <h1>.</h1>
+            </div>
         </section>
 
         <section>
-            <h2>Course List</h2>
-            <div id="course-filters">
-                <button onclick="filterCourses('all')">All</button>
-                <button onclick="filterCourses('WDD')">WDD Courses</button>
-                <button onclick="filterCourses('CSE')">CSE Courses</button>
+            <div>
+                <h2>Rio de Janeiro, Brazil</h2>
             </div>
-            <div id="courses-container"></div>
+
+            <div>
+                <img src="images/rio.jpg" alt="Rio de Janeiro" id="rio">
+                <p>Guanabara Bay</p>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <h2>Web and Computer Programming Certificate</h2>
+            </div>
+
+            <div>
+                <button id="module">ALL</button>
+                <button id="module">CSE</button>
+                <button id="module">WDD</button>
+            </div>
+
+            <div>
+                <button id="course">CSE 110</button>
+                <button id="course">WDD 130</button>
+                <button id="course">CSE 111</button>
+                <button id="course">CSE 210</button>
+                <button id="course">WDD 131</button>
+                <button id="course">WDD 231</button>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="currentyear"></span> Leonardo Lucas - Brazil</p>
+        <p>&copy; <span id="currentyear"></span> Leonardo da Silva Pereira de Lucas - Brazil</p>
+        <img src="images/flag_brazil.png" alt="Imperial Brazil Flag">
         <p id="lastModified"></p>
     </footer>
 </body>

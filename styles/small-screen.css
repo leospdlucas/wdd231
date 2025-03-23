@@ -1,76 +1,56 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+#menu {
+	font-size: 1.5rem;
+	border: 0;
+	background: none;
+	color: #000;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background: #333;
-    color: white;
+#menu::before {
+	content: "☰";
 }
 
-header img {
-    width: 50px;
-    border-radius: 50%;
+#menu.open::before {
+	content: "❌";
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: none;
-    flex-direction: column;
+.navigation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	list-style: none;
+	background-color: #333;
+	color: #fff;
 }
 
-nav ul li {
-    padding: 10px;
+.navigation a {
+	display: none;
+	padding: 1rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+}
+.navigation a:hover {
+	background-color: #bbb;
+	color: #333;
+	font-weight: 700;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
+/* when the button is clicked - the open class is toggled (added/removed) */
+.open a {
+	display: block;
 }
 
-nav ul li a.active {
-    font-weight: bold;
+.active::before { 
+	content: "📍";  /* just a wayfinding symbol for the user */
 }
 
-#menu-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-}
-
-#course-filters {
-    margin: 20px 0;
-}
-
-#course-filters button {
-    margin: 5px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-#courses-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-.course-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    width: 200px;
-}
-
-.completed {
-    background-color: #d4edda;
+.stuff {
+	margin: 0.5rem;
+	border: 1px solid rgb(0  0  0 / 0.1);
+	background-color: #bed;
+	max-width: 580px;
+	height: 100vh;
 }
