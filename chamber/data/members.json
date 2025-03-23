@@ -1,0 +1,57 @@
+[
+    {
+      "name": "Chanel",
+      "address": "123 Street, City",
+      "phone": "123-456-7890",
+      "website": "https://www.chanel.com/us/",
+      "image": "chanel_logo.png",
+      "membershipLevel": 3,
+      "otherInfo": "Gold member"
+    },
+    {
+      "name": "Gucci",
+      "address": "456 Avenue, City",
+      "phone": "123-456-7891",
+      "website": "https://www.gucci.com/us/en/",
+      "image": "gucci_logo.png",
+      "membershipLevel": 2,
+      "otherInfo": "Silver member"
+    },
+    {
+      "name": "Dior",
+      "address": "789 Boulevard, City",
+      "phone": "123-456-7892",
+      "website": "https://www.dior.com/en_us",
+      "image": "dior_logo.png",
+      "membershipLevel": 1,
+      "otherInfo": "Member"
+    },
+    {
+        "name": "Louis Vuitton",
+        "address": "987 Boulevard, City",
+        "phone": "123-456-7893",
+        "website": "https://us.louisvuitton.com/eng-us/homepage",
+        "image": "louis-vuitton_logo.png",
+        "membershipLevel": 1,
+        "otherInfo": "Member"
+      },
+      {
+        "name": "Michael Kors",
+        "address": "654 Boulevard, City",
+        "phone": "123-456-7894",
+        "website": "https://www.michaelkors.global/au/en/",
+        "image": "michael-kors_logo.png",
+        "membershipLevel": 2,
+        "otherInfo": "Silver member"
+      },
+      {
+        "name": "Kerastase",
+        "address": "321 Boulevard, City",
+        "phone": "123-456-7895",
+        "website": "https://www.kerastase.com/",
+        "image": "kerastase_logo.png",
+        "membershipLevel": 3,
+        "otherInfo": "Gold member"
+      }
+  ]
+  

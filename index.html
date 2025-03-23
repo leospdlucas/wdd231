@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course Home Page - WDD 231">
+    <meta name="author" content="Leo Lucas">
+    <title>Course Home - WDD 231</title>
+
+     <!-- Open Graph Meta Tags -->
+     <meta property="og:title" content="Course Home - WDD 231">
+     <meta property="og:type" content="website">
+     <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
+     <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small-screen.css">
+    <link rel="stylesheet" href="styles/large-screen.css">
+    <link rel="icon" href="favicon.ico">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="images/profile.jpg" alt="Profile Picture">
+        <span>Leonardo Lucas</span>
+        <button id="menu-toggle">☰</button>
+    </header>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#">Chamber</a></li>
+            <li><a href="#">GitHub Profile</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+        <section>
+            <h2>Introduction</h2>
+            <p>Welcome to the WDD 231 Course Home Page!</p>
+        </section>
+
+        <section>
+            <h2>Course List</h2>
+            <div id="course-filters">
+                <button onclick="filterCourses('all')">All</button>
+                <button onclick="filterCourses('WDD')">WDD Courses</button>
+                <button onclick="filterCourses('CSE')">CSE Courses</button>
+            </div>
+            <div id="courses-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Leonardo Lucas - Brazil</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
