@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chamber of Commerce Member">
+  <meta name="author" content="Leo Lucas">
+  <title>Timbuktu Chamber of Commerce</title>
+  
+  <!-- Open Graph meta tags for Facebook -->
+  <meta property="og:title" content="Chamber of Commerce Member">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
+  <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
+  
+  <link rel="icon" href="images/chamber-favicon2.ico">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+  <header>
+    <a href="index.html">
+        <img src="images/timbuktu.png" alt="logo" class="logo">
+    </a>
+
+    <div class="title">
+        <h1>Timbuktu</h1>
+        <h2>Chamber of Commerce Home</h2>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="Join.html">Contact</a></li>
+        <li><a href="Discover.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+        <img src="images/timbuktu-hero.jpg" alt="Hero Image">
+        <a href="#" class="cta-button">Join the Chamber</a>
+      </section>
+  
+      <section class="current-events">
+        <h2>Current Events</h2>
+        <p>Check out our upcoming events.</p>
+        <!-- Event content goes here -->
+      </section>
+  
+      <section class="weather">
+        <h2>Current Weather</h2>
+        <div id="weather-info">
+            
+        </div>
+      </section>
+  
+      <section class="company-spotlights">
+        <h2>Company Spotlights</h2>
+        <div id="spotlights-container">
+          <!-- Spotlight cards will be dynamically loaded here -->
+        </div>
+      </section>   
+  </main>
+
+  <footer>
+    <p>Contact: Leo Lucas</p>
+    <p>WDD 231</p>
+    <p id="last-modified"></p>
+    <p>Copyright &copy; <span id="copyright-year"></span></p>
+  </footer>
+
+  <script src="scripts/chamber.js"></script>
+</body>
+</html>
