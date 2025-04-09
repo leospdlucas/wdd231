@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const gridButton = document.querySelector("#grid");
-    const listButton = document.querySelector("#list");
+    const gridButton = document.querySelector("grid");
+    const listButton = document.querySelector("list");
     const display = document.querySelector("article");
-
-    display.classList.add("grid");
 
     gridButton.addEventListener("click", () => {
         display.classList.add("grid");
@@ -97,6 +95,23 @@ function getRandomSpotlights(members) {
 
   return randomSpotlights;
 }
+
+// Footer update dynamic
+document.getElementById("copyright-year").textContent = new Date().getFullYear();
+document.getElementById("last-modified").textContent = `Last Modified: ${document.lastModified}`;
+
+// Menu toggle (mobile)
+document.getElementById("menu-toggle").addEventListener("click", () => {
+document.getElementById("nav-menu").classList.toggle("open");
+});
+
+// Theme toggle
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// Last modified date
+document.getElementById("last-modified").textContent = document.lastModified;
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {

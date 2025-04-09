@@ -1,114 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Chamber of Commerce Member">
   <meta name="author" content="Leo Lucas">
   <title>Member Directory</title>
-  
+
   <!-- Open Graph meta tags for Facebook -->
   <meta property="og:title" content="Chamber of Commerce Member">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
   <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
-  
+
   <link rel="icon" href="images/chamber-favicon2.ico">
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/styles.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
   <header>
     <a href="index.html">
-        <img src="images/timbuktu.png" alt="logo" class="logo">
+      <img src="images/timbuktu.png" alt="logo" class="logo">
     </a>
 
     <div class="title">
-        <h1>Timbuktu</h1>
-        <h2>Chamber of Commerce Member</h2>
+      <h1>Timbuktu</h1>
+      <h3>Chamber of Commerce Member</h3>
     </div>
+
+    <button id="menu-toggle" aria-label="Open Menu">&#9776</button>
 
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="directory.html">Directory</a></li>
-        <li><a href="Join.html">Contact</a></li>
-        <li><a href="Discover.html">Contact</a></li>
+        <li><a href="join.html">Contact</a></li>
+        <li><a href="discover.html">Discover</a></li>
       </ul>
     </nav>
 
+    <button id="theme-toogle" title="Toggle dark mode">
+      <i class="fas fa-adjust"></i>
+    </button>
   </header>
 
   <main>
     <div class="view-toggle">
-        <button id="grid">
-            <i class="fas fa-th"></i>Grid
-        </button>
-        <button id="list">
-            <i class="fas fa-bars"></i>List
-        </button>
+      <button id="grid">
+        <i class="fas fa-th"></i>Grid
+      </button>
+      <button id="list">
+        <i class="fas fa-bars"></i>List
+      </button>
     </div>
 
-	<hr>
-	<article class="grid">
-		<section>
-			<img class="company-img" src="images/chanel_logo.png" alt="Chanel" />
-            <h3>Chanel</h3>
-			<p>123 Street, City</p>
-			<p>123-456-7890</p>
-			<a href="https://www.chanel.com/us/" target="_blank">https://www.gucci.com/us/en</a>
-		</section>
+    <hr>
+    <article class="grid">
+      <section>
+        <img class="company-img" src="images/chanel_logo.png" alt="Chanel" />
+        <h3>Chanel</h3>
+        <p>123 Street, City</p>
+        <p>123-456-7890</p>
+        <a href="https://www.chanel.com/us/" target="_blank">https://www.chanel.com/us</a>
+      </section>
 
-        <section>
-			<img class="company-img" src="images/gucci_logo.png" alt="Gucci" />
-            <h3>Gucci</h3>
-			<p>456 Avenue, City</p>
-			<p>123-456-7891</p>
-			<a href="https://www.gucci.com/us/en/" target="_blank">https://www.gucci.com/us/en</a>
-		</section>
+      <section>
+        <img class="company-img" src="images/gucci_logo.png" alt="Gucci" />
+        <h3>Gucci</h3>
+        <p>456 Avenue, City</p>
+        <p>123-456-7891</p>
+        <a href="https://www.gucci.com/us/en/" target="_blank">https://www.gucci.com/us/en</a>
+      </section>
 
-        <section>
-			<img class="company-img" src="images/dior_logo.png" alt="Dior" />
-            <h3>Dior</h3>
-			<p>789 Boulevard, City</p>
-			<p>123-456-7892</p>
-			<a href="https://www.dior.com/en_us" target="_blank">https://www.dior.com/en_us</a>
-		</section>
+      <section>
+        <img class="company-img" src="images/dior_logo.png" alt="Dior" />
+        <h3>Dior</h3>
+        <p>789 Boulevard, City</p>
+        <p>123-456-7892</p>
+        <a href="https://www.dior.com/en_us" target="_blank">https://www.dior.com/en_us</a>
+      </section>
 
-        <section>
-			<img class="company-img" src="images/louis-vuitton_logo.png" alt="Louis Vuitton" />
-            <h3>Louis Vuitton</h3>
-			<p>987 Boulevard, City</p>
-			<p>123-456-7893</p>
-			<a href="https://us.louisvuitton.com/eng-us/homepage" target="_blank">https://us.louisvuitton.com/eng-us/homepage</a>
-		</section>
+      <section>
+        <img class="company-img" src="images/louis-vuitton_logo.png" alt="Louis Vuitton" />
+        <h3>Louis Vuitton</h3>
+        <p>987 Boulevard, City</p>
+        <p>123-456-7893</p>
+        <a href="https://us.louisvuitton.com/eng-us/homepage"
+          target="_blank">https://us.louisvuitton.com/eng-us/homepage</a>
+      </section>
 
-        <section>
-			<img class="company-img" src="images/michael-kors_logo.png" alt="Michael Kors" />
-            <h3>Michael Kors</h3>
-			<p>654 Boulevard, City</p>
-			<p>123-456-7894</p>
-			<a href="https://www.michaelkors.global/au/en/" target="_blank">https://www.michaelkors.global/au/en/</a>
-		</section>
+      <section>
+        <img class="company-img" src="images/michael-kors_logo.png" alt="Michael Kors" />
+        <h3>Michael Kors</h3>
+        <p>654 Boulevard, City</p>
+        <p>123-456-7894</p>
+        <a href="https://www.michaelkors.global/au/en/" target="_blank">https://www.michaelkors.global/au/en/</a>
+      </section>
 
-        <section>
-			<img class="company-img" src="images/kerastase_logo.png" alt="Kerastase" />
-            <h3>Kerastase</h3>
-			<p>321 Boulevard, City</p>
-			<p>123-456-7895</p>
-			<a href="https://www.kerastase.com/" target="_blank">https://www.kerastase.com/</a>
-		</section>
-	</article>
+      <section>
+        <img class="company-img" src="images/kerastase_logo.png" alt="Kerastase" />
+        <h3>Kerastase</h3>
+        <p>321 Boulevard, City</p>
+        <p>123-456-7895</p>
+        <a href="https://www.kerastase.com/" target="_blank">https://www.kerastase.com/</a>
+      </section>
+    </article>
   </main>
 
   <footer>
-    <p>Contact: Leo Lucas</p>
-    <p>WDD 231</p>
-    <p id="last-modified"></p>
-    <p>Copyright &copy; <span id="copyright-year"></span></p>
+    <div class="footer-info">
+      <p><strong>Timbuktu Chamber of Commerce</strong></p>
+      <p>10 Rue De La Paix<br>Timbuktu, Mali 999</p>
+      <p>info@timbuktucc.org<br>(223) 555-2300</p>
+    </div>
+
+    <div class="social-icons">
+      <img src="images/youtube.png" alt="YouTube">
+      <img src="images/twitter.png" alt="Twitter">
+      <img src="images/linkedin.png" alt="LinkedIn">
+    </div>
+
+    <div class="credits">
+      <p>WDD231 Class Project<br>Marie Martínez</p>
+      <p>&copy; 20xx Timbuktu Chamber of Commerce<br>Last Modification: <span id="lastModified"></span></p>
+    </div>
   </footer>
 
   <script src="scripts/chamber.js"></script>
 </body>
+
 </html>
