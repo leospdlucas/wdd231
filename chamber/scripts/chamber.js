@@ -1,30 +1,104 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const gridButton = document.querySelector("grid");
-    const listButton = document.querySelector("list");
-    const display = document.querySelector("article");
+  const gridButton = document.getElementById("grid");
+  const listButton = document.getElementById("list");
+  const display = document.querySelector("article");
 
-    gridButton.addEventListener("click", () => {
-        display.classList.add("grid");
-        display.classList.remove("list");
+  // View toggle
+  gridButton.addEventListener("click", () => {
+    display.classList.add("grid");
+    display.classList.remove("list");
 
-        gridButton.classList.add("active");
-        listButton.classList.remove("active");
+    gridButton.classList.add("active");
+    listButton.classList.remove("active");
+  });
+
+  listButton.addEventListener("click", () => {
+    display.classList.add("list");
+    display.classList.remove("grid");
+
+    listButton.classList.add("active");
+    gridButton.classList.remove("active");
+  });
+
+  // Weather
+  fetchWeather();
+
+  // Spotlights
+  fetchMembers();
+
+  // 3-Days Forecast
+  fetchForecast();
+
+  // Timestamp
+  const timestampField = document.getElementById("timestamp");
+  if (timestampField) {
+    timestampField.value = new Date().toISOString();
+  }
+
+  // Footer
+  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+  document.getElementById("last-modified").textContent = `Last Modified: ${document.lastModified}`;
+
+  // Mobile menu
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    document.getElementById("nav-menu").classList.toggle("open");
+  });
+
+  // Dark theme
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+
+  // Modal open
+  document.querySelectorAll('.card a, .modal-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const modalId = link.getAttribute('href')?.substring(1);
+      if (modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'block';
+      }
     });
+  });
 
-    listButton.addEventListener("click", () => {
-        display.classList.add("list");
-        display.classList.remove("grid");
-
-        gridButton.classList.add("active");
-        listButton.classList.remove("active");
+  // Modal close
+  document.querySelectorAll('.close').forEach(span => {
+    span.addEventListener('click', () => {
+      const modalId = span.getAttribute('data-close');
+      const modal = document.getElementById(modalId);
+      if (modal) modal.style.display = 'none';
     });
+  });
+
+  // Click outside modal to close
+  window.addEventListener("click", function (event) {
+    document.querySelectorAll(".modal").forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
 });
 
-// API key for OpenWeatherMap
-const apiKey = 'b842b17bb87f2a3f2faf4a532f9ed204';
-const city = 'Timbuktu'; // replace with the actual chamber location
+  // Confirmation page info
+function populateThankYouPage() {
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById('fname').textContent = params.get('fname') || '(Not provided)';
+  document.getElementById('lname').textContent = params.get('lname') || '(Not provided)';
+  document.getElementById('email').textContent = params.get('email') || '(Not provided)';
+  document.getElementById('phone').textContent = params.get('phone') || '(Not provided)';
+  document.getElementById('orgname').textContent = params.get('orgname') || '(Not provided)';
+  document.getElementById('timestamp-display').textContent = params.get('timestamp') || '(Not provided)';
+}
 
-// Fetch weather data
+if (window.location.pathname.includes('thankyou.html')) {
+  populateThankYouPage();
+}
+
+// Weather and Spotlights
+const apiKey = 'b842b17bb87f2a3f2faf4a532f9ed204';
+const city = 'Timbuktu';
+
 async function fetchWeather() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   try {
@@ -39,29 +113,34 @@ async function fetchWeather() {
 function displayWeather(data) {
   const weatherInfo = document.getElementById('weather-info');
   const temp = Math.round(data.main.temp);
-  const description = data.weather.map(item => item.description.charAt(0).toUpperCase() + item.description.slice(1)).join(', '); 
+  const description = data.weather.map(item =>
+    item.description.charAt(0).toUpperCase() + item.description.slice(1)
+  ).join(', ');
 
   weatherInfo.innerHTML = `
     <p>Temperature: ${temp}°F</p>
     <p>Weather: ${description}</p>
     <h3>3-Day Forecast</h3>
-    <!-- Add your forecast display logic here -->
+    <!-- Add your forecast logic here -->
   `;
 }
 
 async function fetchMembers() {
-    try {
-      const response = await fetch('data/members.json');
-      const members = await response.json();
-      displaySpotlights(members);  
-    } catch (error) {
-      console.error('Error to load the members:', error);
-    }
+  try {
+    const response = await fetch('data/members.json');
+    const members = await response.json();
+    displaySpotlights(members);
+  } catch (error) {
+    console.error('Error loading the members:', error);
   }
+}
 
-function displaySpotlights() {
+function displaySpotlights(members) {
   const container = document.getElementById('spotlights-container');
-  const filteredMembers = members.filter(member => member.level === 'gold' || member.level === 'silver');
+  container.innerHTML = ''; // clear any previous data
+  const filteredMembers = members.filter(member =>
+    member.level === 'gold' || member.level === 'silver'
+  );
   const randomSpotlights = getRandomSpotlights(filteredMembers);
 
   randomSpotlights.forEach(member => {
@@ -82,39 +161,44 @@ function displaySpotlights() {
 }
 
 function getRandomSpotlights(members) {
-  const randomSpotlights = [];
-  const randomIndexes = [];
-
-  while (randomSpotlights.length < 2) {
-    const randomIndex = Math.floor(Math.random() * members.length);
-    if (!randomIndexes.includes(randomIndex)) {
-      randomSpotlights.push(members[randomIndex]);
-      randomIndexes.push(randomIndex);
-    }
-  }
-
-  return randomSpotlights;
+  const shuffled = [...members].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 2);
 }
 
-// Footer update dynamic
-document.getElementById("copyright-year").textContent = new Date().getFullYear();
-document.getElementById("last-modified").textContent = `Last Modified: ${document.lastModified}`;
+async function fetchForecast() {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    displayForecast(data);
+  } catch (error) {
+    console.error('Error fetching forecast:', error);
+  }
+}
 
-// Menu toggle (mobile)
-document.getElementById("menu-toggle").addEventListener("click", () => {
-document.getElementById("nav-menu").classList.toggle("open");
-});
+// 3-Days Forecast
+function displayForecast(data) {
+  const forecastContainer = document.getElementById('forecast');
+  forecastContainer.innerHTML = '';
 
-// Theme toggle
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
+  // Filter forecasts for noon for the next 3 days
+  const noonForecasts = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
 
-// Last modified date
-document.getElementById("last-modified").textContent = document.lastModified;
+  noonForecasts.forEach(forecast => {
+    const date = new Date(forecast.dt_txt);
+    const day = date.toLocaleDateString(undefined, { weekday: 'short' });
+    const temp = Math.round(forecast.main.temp);
+    const icon = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+    const description = forecast.weather[0].description;
 
-// Initialize the page
-document.addEventListener('DOMContentLoaded', () => {
-  fetchWeather();
-  displaySpotlights();
-});
+    const card = document.createElement('div');
+    card.classList.add('forecast-day');
+    card.innerHTML = `
+      <h4>${day}</h4>
+      <img src="${icon}" alt="${description}">
+      <p>${temp}°F</p>
+      <p>${description.charAt(0).toUpperCase() + description.slice(1)}</p>
+    `;
+    forecastContainer.appendChild(card);
+  });
+}

@@ -37,9 +37,10 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Contact</a></li>
                 <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <button id="theme-toogle">🌓</button>
             </ul>
         </nav>
 
@@ -48,8 +49,115 @@
         </button>
     </header>
 
-    <main>
+    <main class="form-page">
+        <form method="get" action="thankyou.html" class="membership-form">
+            <h1>Membership Form</h1>
 
+            <label>
+                Last name:
+                <input type="text" name="lname" title="Enter your last name" required autocomplete="family-name" />
+            </label>
+
+            <label>
+                Name:
+                <input type="text" name="fname" title="Enter your name" required autocomplete="given-name" />
+            </label>
+
+            <label>
+                Title:
+                <input type="text" name="orgtitle" title="Your role in the organization" pattern="[A-Za-zÀ-ÿ\s\-]{7,}"
+                    autocomplete="organization-title" />
+            </label>
+
+            <label>
+                Email:
+                <input type="email" name="email" title="Enter your e-mail" required autocomplete="email"
+                    placeholder="exemplo@email.com" />
+            </label>
+
+            <label>
+                Phone:
+                <input type="tel" name="phone" title="Enter your phone" required autocomplete="tel" />
+            </label>
+
+            <label>
+                Organization Name:
+                <input type="text" name="orgname" title="Business or organization name" required
+                    autocomplete="organization" />
+            </label>
+
+            <label>
+                Membership Level:
+                <select name="membership" title="Choose a Assossiation Level" required>
+                    <option value="" disabled selected>Select Level</option>
+                    <option value="NP">NP Membership (Tax Free)</option>
+                    <option value="Bronze">Bronze Membership</option>
+                    <option value="Silver">Silver Membership</option>
+                    <option value="Gold">Gold Membership</option>
+                </select>
+            </label>
+
+            <label>
+                Organization Description:
+                <textarea name="description" title="Brief description of your business or organization" rows="4"></textarea>
+            </label>
+
+            <input type="hidden" id="timestamp" name="timestamp" />
+            <input type="submit" value="Apply Now!" />
+        </form>
+
+        <section class="membership-cards">
+            <div class="card" id="np-card">
+                <h3>NP Membership</h3>
+                <p>Ideal for non-profit organizations.</p>
+                <a href="#np-modal">See benefits</a>
+            </div>
+            <div class="card" id="bronze-card">
+                <h3>Bronze Membership</h3>
+                <p>Basic support with event access.</p>
+                <a href="#bronze-modal">See benefits</a>
+            </div>
+            <div class="card" id="silver-card">
+                <h3>Silver Membership</h3>
+                <p>Includes advertising perks.</p>
+                <a href="#silver-modal">See benefits</a>
+            </div>
+            <div class="card" id="gold-card">
+                <h3>Gold Membership</h3>
+                <p>All benefits and priority features.</p>
+                <a href="#gold-modal">See benefits</a>
+            </div>
+        </section>
+
+        <!-- Modals -->
+        <div id="np-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>NP Membership</h4>
+                <p>No cost. Event access and networking.</p>
+            </div>
+        </div>
+        <div id="bronze-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Bronze Membership</h4>
+                <p>Event access, member listings, and basic ads.</p>
+            </div>
+        </div>
+        <div id="silver-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Silver Membership</h4>
+                <p>Everything in Bronze + homepage spotlight.</p>
+            </div>
+        </div>
+        <div id="gold-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Gold Membership</h4>
+                <p>All benefits, priority promotion, and VIP events.</p>
+            </div>
+        </div>
     </main>
 
     <footer>
