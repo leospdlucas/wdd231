@@ -1,0 +1,32 @@
+.cards-container {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #fff3e0;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+  }
+  
+  .card figure {
+    margin: 0;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  button {
+    margin-top: 1rem;
+  }
+  

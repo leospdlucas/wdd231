@@ -386,14 +386,9 @@ main.form-page {
   }
 
   @media print {
-    .modal {
-      display: none !important;
-    }
-  }
-
-  @media print {
+    .modal,
     .open-modal {
       display: none !important;
     }
-  }
+  }  
 }

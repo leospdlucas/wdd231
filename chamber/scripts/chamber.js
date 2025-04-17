@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Footer
   document.getElementById("copyright-year").textContent = new Date().getFullYear();
-  document.getElementById("last-modified").textContent = `Last Modified: ${document.lastModified}`;
+  document.getElementById("lastModified").textContent = document.lastModified;
+
 
   // Mobile menu
   document.getElementById("menu-toggle").addEventListener("click", () => {
-    document.getElementById("nav-menu").classList.toggle("open");
+    document.querySelector("nav").classList.toggle("open");
   });
 
   // Dark theme
@@ -126,12 +127,39 @@ function displayWeather(data) {
 }
 
 async function fetchMembers() {
+  const spotlightContainer = document.getElementById("spotlight-container");
+
   try {
     const response = await fetch('data/members.json');
     const members = await response.json();
-    displaySpotlights(members);
+
+    const spotlightMembers = members.filter(member =>
+      member.membershipLevel === 2 || member.membershipLevel === 3
+    );
+
+    const selected = spotlightMembers.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+    spotlightContainer.innerHTML = ""; 
+
+    selected.forEach(member => {
+      const card = document.createElement("div");
+      card.classList.add("biz-card");
+
+      card.innerHTML = `
+        <h4>${member.name}</h4>
+        <p class="tag">${member.otherInfo}</p>
+        <img src="images/${member.image}" alt="${member.name} logo">
+        <p><strong>EMAIL:</strong> <a href="mailto:info@${member.website.replace(/https?:\/\/(www\.)?/, '')}">info@${member.website.replace(/https?:\/\/(www\.)?/, '')}</a></p>
+        <p><strong>PHONE:</strong> ${member.phone}</p>
+        <p><strong>URL:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+      `;
+
+      spotlightContainer.appendChild(card);
+    });
+
   } catch (error) {
-    console.error('Error loading the members:', error);
+    console.error("Failed to load members:", error);
+    spotlightContainer.innerHTML = "<p>Unable to load spotlight members at this time.</p>";
   }
 }
 
