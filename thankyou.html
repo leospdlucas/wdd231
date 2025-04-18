@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thank you for contacting São Gabriel Butcher Shop." />
+  <meta name="author" content="Leo Lucas" />
+  <link rel="icon" href="images/faviconcarne.png" />
+  <title>Thank You | São Gabriel Butcher Shop</title>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <style>
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    main h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    main p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>São Gabriel Butcher Shop</h1>
+      <button id="menu-toggle">☰</button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="form.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Thank You!</h2>
+    <p>Your message has been successfully sent. We'll get back to you soon.</p>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> São Gabriel Butcher Shop. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("nav-menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover our delicious selection of meats at Açougue São Gabriel." />
-  <meta property="og:title" content="Products - Açougue São Gabriel" />
-  <meta property="og:description" content="Premium meat products, weekly deals, and more!" />
-  <meta property="og:image" content="images/og-image.jpg" />
-  <link rel="icon" href="images/faviconcarne.png" />
-  <link rel="stylesheet" href="styles/base.css" />
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/products.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto&display=swap" rel="stylesheet" />
-  <title>Products | Açougue São Gabriel</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Discover our delicious selection of meats at São Gabriel Butcher Shop." />
+    <meta property="og:title" content="Products - São Gabriel Butcher Shop" />
+    <meta property="og:description" content="Premium meat products, weekly deals, and more!" />
+    <meta property="og:image" content="images/og-image.jpg" />
+    <link rel="icon" href="images/faviconcarne.png" />
+    <link rel="stylesheet" href="styles/products.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto&display=swap"
+        rel="stylesheet" />
+    <title>Products | São Gabriel Butcher Shop</title>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -30,38 +33,39 @@
         </div>
     </header>
 
-  <main>
-    <section class="intro">
-      <h2>Our Best-Selling Cuts</h2>
-      <p>Explore our premium selections of beef, chicken, pork, and more – always fresh and always affordable.</p>
-      <p id="visit-message"></p> <!-- LocalStorage Welcome Message -->
-    </section>
+    <main>
+        <section class="intro">
+            <h2>Our Best-Selling Cuts</h2>
+            <p>Explore our premium selections of beef, chicken, pork, and more – always fresh and always affordable.</p>
+            <p id="visit-message"></p> <!-- LocalStorage Welcome Message -->
+        </section>
 
-    <section id="products-section" class="product-grid">
-    
-    </section>
+        <section id="products-section" class="product-grid">
 
-    <!-- Modal Dialog for Product Details -->
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-content">
-        <div class="modal-content" id="modal-content">
-          <button class="close-btn" id="modal-close" aria-label="Close dialog">&times;</button>
-          <h2></h2>
-          <img src="" alt="">
-          <p class="description"></p>
-          <p class="weight"></p>
-          <p class="price"></p>
+        </section>
+
+        <!-- Modal Dialog for Product Details -->
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-content">
+            <div class="modal-content" id="modal-content">
+                <button class="close-btn" id="modal-close" aria-label="Close dialog">&times;</button>
+                <h2></h2>
+                <img src="" alt="">
+                <p class="description"></p>
+                <p class="weight"></p>
+                <p class="price"></p>
+            </div>
         </div>
-      </div>
-  </main>
+    </main>
 
-  <footer>
-    <p>&copy; <span id="year"></span> Açougue São Gabriel | <a href="attributions.html">Attributions</a></p>
-  </footer>
+    <footer>
+        <p>&copy; <span id="year"></span> São Gabriel Butcher Shop | <a href="attributions.html">Attributions</a></p>
+    </footer>
 
-  <script type="module" src="scripts/products.js"></script>
+    <script type="module" src="scripts/products.js"></script>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>
