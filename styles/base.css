@@ -1,0 +1,81 @@
+/* base.css */
+/* Simple Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global CSS */
+:root {
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --color-primary: #9b1c1c;      
+  --color-secondary: #f4c542;    
+  --color-bg: #fffdf9;
+  --color-text: #1e1e1e;
+  --color-muted: #777;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  --max-width: 1200px;
+}
+
+/* General Typography */
+body {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* Util */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #7f1818;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}

@@ -112,7 +112,7 @@ async function fetchWeather() {
 }
 
 function displayWeather(data) {
-  const weatherInfo = document.getElementById('weather-info');
+  const weatherInfo = document.getElementById('weather');
   const temp = Math.round(data.main.temp);
   const description = data.weather.map(item =>
     item.description.charAt(0).toUpperCase() + item.description.slice(1)
@@ -121,8 +121,6 @@ function displayWeather(data) {
   weatherInfo.innerHTML = `
     <p>Temperature: ${temp}°F</p>
     <p>Weather: ${description}</p>
-    <h3>3-Day Forecast</h3>
-    <!-- Add your forecast logic here -->
   `;
 }
 

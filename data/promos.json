@@ -1,0 +1,84 @@
+{
+    "promos": [
+        {
+            "id": 1,
+            "name": "Top Sirloin Steak",
+            "description": "Lean and flavorful cut, great for grilling or stir-fry.",
+            "price": "$10.49/lb",
+            "weight": "Approx. 1.1 lb",
+            "image": "images/top-sirloin.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Whole Chicken",
+            "description": "Fresh whole chicken, perfect for roasting or slow cooking.",
+            "price": "$3.29/lb",
+            "weight": "Approx. 4 lb",
+            "image": "images/whole-chicken.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Pork Tenderloin",
+            "description": "Delicate and lean pork cut, ideal for roasting or grilling.",
+            "price": "$7.99/lb",
+            "weight": "Approx. 1.5 lb",
+            "image": "images/pork-tenderloin.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Lamb Chops",
+            "description": "Premium lamb chops, tender and rich in flavor.",
+            "price": "$14.99/lb",
+            "weight": "Approx. 0.8 lb",
+            "image": "images/lamb-chops.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Turkey Breast",
+            "description": "Boneless turkey breast, perfect for lean and healthy meals.",
+            "price": "$5.79/lb",
+            "weight": "Approx. 2 lb",
+            "image": "images/turkey-breast.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Beef Brisket",
+            "description": "Perfect for slow cooking, barbecues, or smoked preparations.",
+            "price": "$8.49/lb",
+            "weight": "Approx. 2.5 lb",
+            "image": "images/beef-brisket.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Duck Legs",
+            "description": "Flavorful duck legs for roasting or confit recipes.",
+            "price": "$6.99/lb",
+            "weight": "Approx. 1.2 lb",
+            "image": "images/duck-legs.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Italian Sausage",
+            "description": "Seasoned pork sausage links with classic Italian spices.",
+            "price": "$5.49/lb",
+            "weight": "Approx. 1 lb",
+            "image": "images/italian-sausage.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Veal Cutlets",
+            "description": "Thin and tender veal slices, great for schnitzel or pan-frying.",
+            "price": "$13.99/lb",
+            "weight": "Approx. 0.9 lb",
+            "image": "images/veal-cutlets.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Smoked Bacon Slab",
+            "description": "Thick-cut smoked bacon for slicing and cooking your way.",
+            "price": "$6.79/lb",
+            "weight": "Approx. 1.2 lb",
+            "image": "images/bacon-slab.jpg"
+        }
+    ]
+}

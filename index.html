@@ -1,94 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Course Home Page - WDD 231">
-    <meta name="author" content="Leo Lucas">
-    <title>Course Home - WDD 231</title>
-
-     <!-- Open Graph Meta Tags -->
-     <meta property="og:title" content="Course Home - WDD 231">
-     <meta property="og:type" content="website">
-     <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
-     <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
-
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/small-screen.css">
-    <link rel="stylesheet" href="styles/large-screen.css">
-    <link rel="icon" href="favicon.ico">
-    <script src="scripts/navigation.js" defer></script>
-    <script src="scripts/date.js" defer></script>
-    <script src="scripts/course.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Açougue São Gabriel - Quality and trust in selected meats. Check out our promotions and fresh products!" />
+    <meta property="og:title" content="Açougue São Gabriel" />
+    <meta property="og:description" content="Premium meats straight to your table." />
+    <meta property="og:image" content="images/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="images/faviconcarne.png" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/products.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto&display=swap" rel="stylesheet" />
+    <script type="module" src="scripts/scripts.js" defer></script>
+    <title>São Gabriel Butchery</title>
 </head>
+
 <body>
     <header>
-        <img src="images/profile.jpg" alt="Profile Picture">
-        <h1>Leonardo da Silva Pereira de Lucas</h1>
-
-        <button id="menu">☰</button>
-        <nav>
-            <ul class="navigation">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="chamber/directory.html">Chamber</a></li>
-                <li><a href="https://github.com/leospdlucas">GitHub Profile</a></li>
-                <li><a href="https://www.linkedin.com/in/leonardospdlucas/">LinkedIn</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>São Gabriel Butcher Shop</h1>
+            <nav>
+                <button id="menu-toggle" aria-label="Open menu">☰</button>
+                <ul id="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="form.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <h1>Home</h1>
-
-        <section>
-            <div id="course-work">
-                <h2>Course Work</h2>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Selected meats straight to your table</h2>
+                <p>Quality, flavor and tradition.</p>
+                <a href="produtos.html" class="btn">View Products</a>
             </div>
+            <img src="images/acougue-hero.png" alt="Fresh cut meats" loading="lazy" />
+        </section>
 
-            <div>
-                <h1>.</h1>
-                <h1>.</h1>
-                <h1>.</h1>
+        <section class="promo">
+            <h2>Weekly Offers</h2>
+            <div id="promo-cards">
+                <!-- Promotions inserted dynamically via JS -->
             </div>
         </section>
 
-        <section>
-            <div>
-                <h2>Rio de Janeiro, Brazil</h2>
-            </div>
-
-            <div>
-                <img src="images/rio.jpg" alt="Rio de Janeiro" id="rio">
-                <p>Guanabara Bay</p>
-            </div>
-        </section>
-
-        <section>
-            <div>
-                <h2>Web and Computer Programming Certificate</h2>
-            </div>
-
-            <div>
-                <button id="module">ALL</button>
-                <button id="module">CSE</button>
-                <button id="module">WDD</button>
-            </div>
-
-            <div>
-                <button id="course">CSE 110</button>
-                <button id="course">WDD 130</button>
-                <button id="course">CSE 111</button>
-                <button id="course">CSE 210</button>
-                <button id="course">WDD 131</button>
-                <button id="course">WDD 231</button>
+        <section class="weather">
+            <h2>Check the weather in our region</h2>
+            <div id="weather">
+                <!-- Weather via API -->
+                <p>Loading weather...</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="currentyear"></span> Leonardo da Silva Pereira de Lucas - Brazil</p>
-        <img src="images/flag_brazil.png" alt="Imperial Brazil Flag">
-        <p id="lastModified"></p>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Açougue São Gabriel. All rights reserved.</p>
+            <p><a href="attributions.html">Attributions</a></p>
+        </div>
     </footer>
 </body>
+
 </html>
