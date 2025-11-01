@@ -1,72 +1,93 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="São Gabriel Butcher Shop - Quality and trust in selected meats. Check out our promotions and fresh products!" />
-    <meta property="og:title" content="São Gabriel Butcher Shop" />
-    <meta property="og:description" content="Premium meats straight to your table." />
-    <meta property="og:image" content="images/og-image.jpg" />
-    <meta property="og:type" content="website" />
-    <link rel="icon" href="images/faviconcarne.png" />
-    <link rel="stylesheet" href="styles/base.css" />
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/products.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto&display=swap"
-        rel="stylesheet" />
-    <script type="module" src="scripts/scripts.js" defer></script>
-    <title>São Gabriel Butcher Shop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WDD 231 - Leo Lucas</title>
+  <meta name="description" content="Course home page for WDD 231 — responsive layout with dynamic course filtering and credits.">
+  <meta name="author" content="Leo Lucas">
+
+  <link rel="icon" href="old/favicon.ico" type="old">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- JS -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/courses.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>São Gabriel Butcher Shop</h1>
-            <nav>
-                <button id="menu-toggle" aria-label="Open menu">☰</button>
-                <ul id="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="products.html">Our Products</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="form.html">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img src="images/header-course-home.png" width="60" height="60" alt="" aria-hidden="true">
+      <span class="brand-name">WDD 231: Web Frontend Development I</span>
+    </a>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h2>Selected meats straight to your table</h2>
-                <p>Quality, flavor and tradition.</p>
-                <a href="produtos.html" class="btn">View Products</a>
-            </div>
-            <img src="images/acougue-hero.png" alt="Fresh cut meats" loading="lazy" />
-        </section>
+    <button id="menu" class="menu" aria-expanded="false" aria-controls="primary-nav" aria-label="Open site menu">
+      <span class="hamburger"></span>
+    </button>
 
-        <section class="promo">
-            <h2>Weekly Offers</h2>
-            <div id="promo-cards">
-                <!-- Promotions inserted dynamically via JS -->
-            </div>
-        </section>
+    <nav id="primary-nav" class="nav">
+      <ul>
+        <li><a href="./" data-nav="home" aria-current="page">Home</a></li>
+        <li><a href="chamber/" data-nav="chamber">Chamber Project</a></li>
+        <li><a href="final/" data-nav="final">Final Project</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <section class="weather">
-            <h2>Check the weather in our region</h2>
-            <div id="weather">
-                <!-- Weather via API -->
-                <p>Loading weather...</p>
-            </div>
-        </section>
-    </main>
+  <main id="main">
+    <h1>Home</h1>
 
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> São Gabriel Butcher Shop. All rights reserved.</p>
-            <p><a href="attributions.html">Attributions</a></p>
-        </div>
-    </footer>
+    <section class="panel about">
+      <h2>About Me</h2>
+      <p>I retook WDD 131, and now I’m retaking WDD 231 because I didn’t submit the final project on time… Trying to get one week ahead on the assignments…</p>
+    </section>
+
+    <section class="panel photo">
+      <h2>Leo Lucas Photo</h2>
+      <figure class="avatar">
+        <img src="images/me-hashira-mini.png" width="320" height="480" alt="Your portrait" loading="lazy">
+        <figcaption class="visually-hidden">Portrait</figcaption>
+      </figure>
+    </section>
+
+    <section class="panel courses">
+      <h2>Web Certificate Courses</h2>
+      <div class="filters" role="group" aria-label="Filter courses">
+        <button class="chip is-pressed" data-filter="all" aria-pressed="true" id="btn-all">All</button>
+        <button class="chip" data-filter="CSE" aria-pressed="false" id="btn-cse">CSE</button>
+        <button class="chip" data-filter="WDD" aria-pressed="false" id="btn-wdd">WDD</button>
+      </div>
+
+      <div id="courses" class="course-grid" aria-live="polite"></div>
+
+      <p class="total"><strong>Total credits shown:</strong> <span id="credits-total">0</span></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="social">
+      <a href="https://github.com/yourgithubusername/wdd231" target="_blank" rel="GitHub course repository" aria-label="GitHub repository">
+        <img src="images/github.svg" width="28" height="28" alt="">
+      </a>
+      <a href="www.linkedin.com/in/leonardospdlucas" target="_blank" rel="LinkedIn Leo profile" aria-label="LinkedIn profile">
+        <img src="images/linkedin.svg" width="28" height="28" alt="">
+      </a>
+      <a href="https://x.com/leosp_lucas" target="_blank" rel="X Leo profile" aria-label="X (Twitter)">
+        <img src="images/x.svg" width="28" height="28" alt="">
+      </a>
+    </div>
+    <p>© <span id="currentyear"></span> • <span id="student-name">Leonardo Lucas</span> • <span id="location">Rio de Janeiro, Brazil</span></p>
+    <p id="lastModified"></p>
+  </footer>
 </body>
 
 </html>

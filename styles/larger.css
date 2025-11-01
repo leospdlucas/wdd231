@@ -1,0 +1,58 @@
+/* Larger viewports */
+@media (min-width: 48rem) {
+  .menu { display:none; }
+  .nav { display:block; }
+  .nav ul {
+    display:flex;
+    gap:.5rem;
+    padding:0;
+  }
+  .nav a { padding: .5rem .9rem; }
+
+  #main {
+    padding: 1.5rem 2rem 2rem;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  /* Two-column layout for About/Photo */
+  .about, .photo { margin-block: 0; }
+  .about + .photo { margin-top: 1rem; }
+
+  .about-photo {
+    display: grid;
+  }
+
+  /* Use grid for the first two panels side by side */
+  .about, .photo, .courses {
+    /* just for consistent panel spacing */
+  }
+
+  main > .panel.about,
+  main > .panel.photo {
+    display: block;
+  }
+
+  main > .panel.about,
+  main > .panel.photo {
+    /* grid placement handled below */
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+
+  main > h1 {
+    grid-column: 1 / -1;
+  }
+
+  main > .courses {
+    grid-column: 1 / -1;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
