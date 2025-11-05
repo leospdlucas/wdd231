@@ -320,7 +320,7 @@ main.form-page {
   color: #000;
 }
 
-/* Responsivo */
+/* Responsive */
 @media (min-width: 768px) {
   main.form-page {
     flex-direction: row;
@@ -391,4 +391,46 @@ main.form-page {
       display: none !important;
     }
   }  
+}
+
+/* === Directory grid/list views === */
+article.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+article.grid section {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+article.grid img.company-img {
+  max-width: 160px;
+  height: auto;
+}
+
+article.list { display: block; }
+article.list section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 0;
+  border-bottom: 1px solid #eee;
+}
+article.list img.company-img {
+  width: 64px;
+  height: auto;
+}
+article section .level { font-size: .85rem; opacity: .8; }
+
+/* Small screens */
+@media (max-width: 32rem) {
+  article.grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }

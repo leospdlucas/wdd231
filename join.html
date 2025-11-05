@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the Chamber — Timbuktu</title>
+  <meta name="description" content="Join the Timbuktu Chamber of Commerce to connect and grow with our business community.">
+  <meta name="author" content="Leonardo Lucas">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+  <!-- Open Graph (Facebook) -->
+  <meta property="og:title" content="Join the Chamber — Timbuktu">
+  <meta property="og:description" content="Join the Timbuktu Chamber of Commerce to connect and grow with our business community.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:url" content="https://your-github-pages.example/chamber/join.html">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Timbuktu Chamber</a>
+      <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="closed" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="discover.html">Discover</a>
+        <a href="directory.html">Directory</a>
+        <a href="join.html">Join</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+
+<section class="hero">
+  <h1>Join the Chamber</h1>
+  <p>Fill out the form below to apply for membership.</p>
+</section>
+
+<section class="container">
+  <form action="#" method="post" style="margin-top:1rem; background: var(--surface); border:1px solid var(--border); padding:1rem; border-radius:.75rem;">
+    <label for="org">Organization</label><br>
+    <input id="org" name="org" type="text" required style="width:100%;padding:.6rem;margin:.25rem 0 1rem;"><br>
+
+    <label for="contact">Contact Name</label><br>
+    <input id="contact" name="contact" type="text" required style="width:100%;padding:.6rem;margin:.25rem 0 1rem;"><br>
+
+    <label for="email">Email</label><br>
+    <input id="email" name="email" type="email" required style="width:100%;padding:.6rem;margin:.25rem 0 1rem;"><br>
+
+    <label for="phone">Phone</label><br>
+    <input id="phone" name="phone" type="tel" style="width:100%;padding:.6rem;margin:.25rem 0 1rem;"><br>
+
+    <label for="level">Membership Level</label><br>
+    <select id="level" name="level" required style="width:100%;padding:.6rem;margin:.25rem 0 1rem;">
+      <option value="">Select a level...</option>
+      <option value="1">Member</option>
+      <option value="2">Silver</option>
+      <option value="3">Gold</option>
+    </select><br>
+
+    <button type="submit" style="border:1px solid var(--border); background:var(--primary); color:#fff; padding:.6rem 1rem; border-radius:.5rem; cursor:pointer;">Submit</button>
+  </form>
+</section>
+
+    </div>
+  </main>
+  <footer>
+    <div class="container footer-inner">
+      <div class="credits">
+        <p>Leonardo Lucas — WDD 231</p>
+        <p>© <span id="copyright-year"></span> Timbuktu Chamber of Commerce</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/chamber.js" defer></script>
+</body>
+</html>

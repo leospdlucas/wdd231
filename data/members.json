@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Sahara Coffee Roasters",
+    "address": "101 Dune Ave, Timbuktu",
+    "phone": "+223 555-0101",
+    "website": "https://example.com/sahara-coffee",
+    "image": "company-1.png",
+    "membershipLevel": 3
+  },
+  {
+    "name": "Blue River Outfitters",
+    "address": "22 Oasis Street, Timbuktu",
+    "phone": "+223 555-0102",
+    "website": "https://example.com/blue-river",
+    "image": "company-2.png",
+    "membershipLevel": 2
+  },
+  {
+    "name": "Desert Tech Labs",
+    "address": "500 Mirage Blvd, Timbuktu",
+    "phone": "+223 555-0103",
+    "website": "https://example.com/desert-tech",
+    "image": "company-3.png",
+    "membershipLevel": 1
+  },
+  {
+    "name": "Camel Courier Services",
+    "address": "70 Caravan Rd, Timbuktu",
+    "phone": "+223 555-0104",
+    "website": "https://example.com/camel-courier",
+    "image": "company-4.png",
+    "membershipLevel": 2
+  },
+  {
+    "name": "Saharan Arts Collective",
+    "address": "11 Nomad Plaza, Timbuktu",
+    "phone": "+223 555-0105",
+    "website": "https://example.com/saharan-arts",
+    "image": "company-5.png",
+    "membershipLevel": 3
+  },
+  {
+    "name": "Oasis Wellness Spa",
+    "address": "8 Palm Grove, Timbuktu",
+    "phone": "+223 555-0106",
+    "website": "https://example.com/oasis-spa",
+    "image": "company-6.png",
+    "membershipLevel": 1
+  },
+  {
+    "name": "Dune Builders Co.",
+    "address": "42 Sandstone Pkwy, Timbuktu",
+    "phone": "+223 555-0107",
+    "website": "https://example.com/dune-builders",
+    "image": "company-7.png",
+    "membershipLevel": 1
+  },
+  {
+    "name": "Atlas Financial Group",
+    "address": "300 Summit Way, Timbuktu",
+    "phone": "+223 555-0108",
+    "website": "https://example.com/atlas-financial",
+    "image": "company-8.png",
+    "membershipLevel": 2
+  }
+]

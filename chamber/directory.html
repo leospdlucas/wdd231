@@ -1,136 +1,87 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chamber of Commerce Member">
-  <meta name="author" content="Leo Lucas">
-  <title>Member Directory</title>
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <meta content="Chamber of Commerce Member" name="description" />
+      <meta content="Leo Lucas" name="author" />
+      <title>Member Directory</title>
 
-  <!-- Open Graph meta tags for Facebook -->
-  <meta property="og:title" content="Chamber of Commerce Member">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
-  <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
+      <!-- Open Graph meta tags for Facebook -->
+      <meta content="Chamber of Commerce Member" property="og:title" />
+      <meta content="website" property="og:type" />
+      <meta content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png" property="og:image" />
+      <meta content="https://leospdlucas.github.io/BYU/wdd231/" property="og:url" />
 
-  <link rel="icon" href="images/chamber-favicon2.ico">
-  <link rel="stylesheet" href="styles/normalize.css">
-  <link rel="stylesheet" href="styles/styles.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+      <link href="images/chamber-favicon2.ico" rel="icon" />
+      <link href="styles/normalize.css" rel="stylesheet" />
+      <link href="styles/styles.css" rel="stylesheet" />
+      <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <meta content="Browse our Chamber of Commerce member directory and discover local businesses, services, and partners." property="og:description" />
 </head>
 
 <body>
-  <header>
-    <a href="index.html">
-      <img src="images/timbuktu.png" alt="logo" class="logo">
-    </a>
+      <header>
+            <a href="index.html">
+                  <img alt="logo" class="logo" src="images/timbuktu.png" />
+            </a>
 
-    <div class="title">
-      <h1>Timbuktu</h1>
-      <h3>Chamber of Commerce Member</h3>
-    </div>
+            <div class="title">
+                  <h1>Timbuktu</h1>
+                  <h3>Chamber of Commerce Member</h3>
+            </div>
 
-    <button id="menu-toggle" aria-label="Open Menu">&#9776</button>
+            <button aria-label="Open Menu" id="menu-toggle">☰</button>
 
-    <nav id="nav-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="discover.html">Discover</a></li>
-        <li><a href="directory.html">Directory</a></li>
-        <li><a href="join.html">Join</a></li>
-      </ul>
-    </nav>
+            <nav id="nav-menu">
+                  <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="join.html">Join</a></li>
+                  </ul>
+            </nav>
 
-    <button id="theme-toggle" title="Toggle dark mode">🌓
-      <i class="fas fa-adjust"></i>
-    </button>
-  </header>
+            <button id="theme-toggle" title="Toggle dark mode">🌓
+                  <i class="fas fa-adjust"></i>
+            </button>
 
-  <main>
-    <div class="view-toggle">
-      <button id="grid">
-        <i class="fas fa-th"></i>Grid
-      </button>
-      <button id="list">
-        <i class="fas fa-bars"></i>List
-      </button>
-    </div>
+      </header>
+      <main>
+            <div class="view-toggle">
+                  <button id="grid">
+                        <i class="fas fa-th"></i>Grid
+                  </button>
 
-    <hr>
-    <article class="grid">
-      <section>
-        <img class="company-img" src="images/chanel_logo.png" alt="Chanel" />
-        <h3>Chanel</h3>
-        <p>123 Street, City</p>
-        <p>123-456-7890</p>
-        <a href="https://www.chanel.com/us/" target="_blank">https://www.chanel.com/us</a>
-      </section>
+                  <button id="list">
+                        <i class="fas fa-bars"></i>List
+                  </button>
+            </div>
 
-      <section>
-        <img class="company-img" src="images/gucci_logo.png" alt="Gucci" />
-        <h3>Gucci</h3>
-        <p>456 Avenue, City</p>
-        <p>123-456-7891</p>
-        <a href="https://www.gucci.com/us/en/" target="_blank">https://www.gucci.com/us/en</a>
-      </section>
+            <hr />
+            <article class="grid" id="directory"></article>
 
-      <section>
-        <img class="company-img" src="images/dior_logo.png" alt="Dior" />
-        <h3>Dior</h3>
-        <p>789 Boulevard, City</p>
-        <p>123-456-7892</p>
-        <a href="https://www.dior.com/en_us" target="_blank">https://www.dior.com/en_us</a>
-      </section>
-
-      <section>
-        <img class="company-img" src="images/louis-vuitton_logo.png" alt="Louis Vuitton" />
-        <h3>Louis Vuitton</h3>
-        <p>987 Boulevard, City</p>
-        <p>123-456-7893</p>
-        <a href="https://us.louisvuitton.com/eng-us/homepage"
-          target="_blank">https://us.louisvuitton.com/eng-us/homepage</a>
-      </section>
-
-      <section>
-        <img class="company-img" src="images/michael-kors_logo.png" alt="Michael Kors" />
-        <h3>Michael Kors</h3>
-        <p>654 Boulevard, City</p>
-        <p>123-456-7894</p>
-        <a href="https://www.michaelkors.global/au/en/" target="_blank">https://www.michaelkors.global/au/en/</a>
-      </section>
-
-      <section>
-        <img class="company-img" src="images/kerastase_logo.png" alt="Kerastase" />
-        <h3>Kerastase</h3>
-        <p>321 Boulevard, City</p>
-        <p>123-456-7895</p>
-        <a href="https://www.kerastase.com/" target="_blank">https://www.kerastase.com/</a>
-      </section>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-info">
-      <p><strong>Timbuktu Chamber of Commerce</strong></p>
-      <p>10 Rue De La Paix<br>Timbuktu, Mali 999</p>
-      <p>info@timbuktucc.org<br>(223) 555-2300</p>
-    </div>
-
-    <div class="social-icons">
-      <img src="images/youtube.png" alt="YouTube">
-      <img src="images/twitter.png" alt="Twitter">
-      <img src="images/linkedin.png" alt="LinkedIn">
-    </div>
-
-    <div class="credits">
-      <p>WDD231 Class Project<br>Marie Martínez</p>
-      <p>&copy; 20xx Timbuktu Chamber of Commerce<br>Last Modification: <span id="lastModified"></span></p>
-    </div>
-  </footer>
-
-  <script src="scripts/chamber.js"></script>
+      </main>
+      <footer>
+            <div class="footer-info">
+                  <p><strong>Timbuktu Chamber of Commerce</strong></p>
+                  <p>10 Rue De La Paix<br />Timbuktu, Mali 999</p>
+                  <p>info@timbuktucc.org<br />(223) 555-2300</p>
+            </div>
+            <div class="social-icons">
+                  <img alt="YouTube" src="images/youtube.png" />
+                  <img alt="Twitter" src="images/twitter.png" />
+                  <img alt="LinkedIn" src="images/linkedin.png" />
+            </div>
+            <div class="credits">
+                  <p>Leonardo Lucas — WDD 231</p>
+                  <p>©  <span id="copyright-year"></span> Timbuktu Chamber of Commerce<br />Last Modification: 
+                        <span id="lastModified"></span></p>
+            </div>
+      </footer>
+      <script src="scripts/chamber.js"></script>
 </body>
 
 </html>
