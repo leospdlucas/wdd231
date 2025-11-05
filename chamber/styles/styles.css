@@ -320,7 +320,7 @@ main.form-page {
   color: #000;
 }
 
-/* Responsive */
+/* Responsivo */
 @media (min-width: 768px) {
   main.form-page {
     flex-direction: row;
@@ -393,13 +393,13 @@ main.form-page {
   }  
 }
 
-/* === Directory grid/list views === */
-article.grid {
+/* === Directory grid/list views (added) === */
+#directory.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1rem;
 }
-article.grid section {
+#directory.grid section {
   border: 1px solid #ddd;
   background: #fff;
   padding: 1rem;
@@ -409,28 +409,20 @@ article.grid section {
   align-items: center;
   text-align: center;
 }
-article.grid img.company-img {
-  max-width: 160px;
-  height: auto;
-}
+#directory.grid img.company-img { max-width: 160px; height: auto; }
 
-article.list { display: block; }
-article.list section {
+#directory.list { display: block; }
+#directory.list section {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: .75rem 0;
   border-bottom: 1px solid #eee;
 }
-article.list img.company-img {
-  width: 64px;
-  height: auto;
-}
-article section .level { font-size: .85rem; opacity: .8; }
+#directory.list img.company-img { width: 64px; height: auto; }
 
-/* Small screens */
+#directory section .level { font-size: .85rem; opacity: .8; }
+
 @media (max-width: 32rem) {
-  article.grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  #directory.grid { grid-template-columns: 1fr 1fr; }
 }

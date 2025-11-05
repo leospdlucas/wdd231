@@ -1,7 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
   const gridButton = document.getElementById("grid");
   const listButton = document.getElementById("list");
-  const display = document.querySelector("article");
+  const display = document.getElementById("directory");
+  buildDirectory();
+
+
+  // Build directory from JSON
+  async function buildDirectory() {
+    const container = document.getElementById("directory");
+    if (!container) return;
+    try {
+      const res = await fetch("data/members.json");
+      const data = await res.json();
+      const members = Array.isArray(data) ? data : (data.members || []);
+      container.innerHTML = "";
+      members.forEach(m => {
+        const section = document.createElement("section");
+        section.className = "member";
+        section.innerHTML = `
+          <img class="company-img" src="images/${m.image}" alt="${m.name} logo">
+          <h3>${m.name}</h3>
+          <p>${m.address}</p>
+          <p>${m.phone}</p>
+          <a href="${m.website}" target="_blank" rel="noopener">Visit Website</a>
+          <p class="level">Level: ${m.membershipLevel === 3 ? "Gold" : (m.membershipLevel === 2 ? "Silver" : "Member")}</p>
+        `;
+        container.appendChild(section);
+      });
+    } catch (err) {
+      console.error("Directory load failed:", err);
+      container.innerHTML = `<p class="error">Sorry, we couldn't load the directory right now.</p>`;
+    }
+  }
 
   // View toggle
   gridButton.addEventListener("click", () => {
@@ -227,36 +257,4 @@ function displayForecast(data) {
     `;
     forecastContainer.appendChild(card);
   });
-}
-
-
-async function buildDirectory() {
-  const container = document.getElementById("directory") || document.querySelector("article.directory");
-  if (!container) return;
-  try {
-    const res = await fetch("data/members.json");
-    const data = await res.json();
-    const members = Array.isArray(data) ? data : (data.members || []);
-    container.innerHTML = "";
-    members.forEach(m => {
-      const section = document.createElement("section");
-      section.className = "member";
-      section.innerHTML = `
-        <img class="company-img" src="images/${m.image}" alt="${m.name} logo">
-        <h3>${m.name}</h3>
-        <p>${m.address}</p>
-        <p>${m.phone}</p>
-        <a href="${m.website}" target="_blank" rel="noopener">Visit Website</a>
-        <p class="level">Level: ${m.membershipLevel === 3 ? "Gold" : (m.membershipLevel === 2 ? "Silver" : "Member")}</p>
-      `;
-      container.appendChild(section);
-    });
-  } catch (err) {
-    console.error("Directory load failed:", err);
-    const msg = document.createElement("p");
-    msg.className = "error";
-    msg.textContent = "Sorry, we couldn't load the directory right now.";
-    container.innerHTML = "";
-    container.appendChild(msg);
-  }
 }
