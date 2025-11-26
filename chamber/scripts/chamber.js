@@ -2,13 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const gridButton = document.getElementById("grid");
   const listButton = document.getElementById("list");
   const display = document.getElementById("directory");
-  buildDirectory();
-
 
   // Build directory from JSON
   async function buildDirectory() {
     const container = document.getElementById("directory");
     if (!container) return;
+
     try {
       const res = await fetch("data/members.json");
       const data = await res.json();
@@ -33,22 +32,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  if (display) {
+    buildDirectory();
+  }
+
   // View toggle
-  gridButton.addEventListener("click", () => {
-    display.classList.add("grid");
-    display.classList.remove("list");
+  if (gridButton && listButton && display) {
+    gridButton.addEventListener("click", () => {
+      display.classList.add("grid");
+      display.classList.remove("list");
 
-    gridButton.classList.add("active");
-    listButton.classList.remove("active");
-  });
+      gridButton.classList.add("active");
+      listButton.classList.remove("active");
+    });
 
-  listButton.addEventListener("click", () => {
-    display.classList.add("list");
-    display.classList.remove("grid");
+    listButton.addEventListener("click", () => {
+      display.classList.add("list");
+      display.classList.remove("grid");
 
-    listButton.classList.add("active");
-    gridButton.classList.remove("active");
-  });
+      listButton.classList.add("active");
+      gridButton.classList.remove("active");
+    });
+  }
 
   // Weather
   fetchWeather();
@@ -66,19 +71,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Footer
-  document.getElementById("copyright-year").textContent = new Date().getFullYear();
-  document.getElementById("lastModified").textContent = document.lastModified;
+  const yearSpan = document.getElementById("copyright-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
+  const lastModifiedSpan = document.getElementById("lastModified");
+  if (lastModifiedSpan) {
+    lastModifiedSpan.textContent = document.lastModified;
+  }
 
   // Mobile menu
-  document.getElementById("menu-toggle").addEventListener("click", () => {
-    document.querySelector("nav").classList.toggle("open");
-  });
+  const menuToggle = document.getElementById("menu-toggle");
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      document.querySelector("nav").classList.toggle("open");
+    });
+  }
 
   // Dark theme
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-  });
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  }
 
   // Modal open
   document.querySelectorAll('.card a, .modal-link').forEach(link => {
@@ -131,7 +148,7 @@ const apiKey = 'b842b17bb87f2a3f2faf4a532f9ed204';
 const city = 'Timbuktu';
 
 async function fetchWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -146,15 +163,66 @@ function displayWeather(data) {
   if (!weatherInfo) return; // don't do anything on pages without weather section
 
   const temp = Math.round(data.main.temp);
+  const feels = Math.round(data.main.feels_like);
+  const temp_min = Math.round(data.main.temp_min);
+  const temp_max = Math.round(data.main.temp_max);
+  const humidity = data.main.humidity;
+
   const description = data.weather
     .map(item => item.description.charAt(0).toUpperCase() + item.description
-      .slice(1)
+    .slice(1)
     ).join(', ');
 
   weatherInfo.innerHTML = `
-    <p>Temperature: ${temp}°F</p>
-    <p>Weather: ${description}</p>
+    <br><p><strong>Current Temperature:</strong> ${temp}°C</p>
+    <p><strong>Feels Like:</strong> ${feels}°C</p>
+    <p><strong>Low:</strong> ${(temp_min)}°C</p>
+    <p><strong>High:</strong> ${(temp_max )}°C</p>
+    <p><strong>Weather:</strong> ${description}</p>
+    <p><strong>Humidity:</strong> ${humidity}%</p>
   `;
+}
+
+// 3-Days Forecast
+function displayForecast(data) {
+  const forecastContainer = document.getElementById('forecast');
+  if (!forecastContainer) return; // don't do anything on pages without forecast section
+
+  forecastContainer.innerHTML = '';
+
+  // Filter forecasts for noon for the next 3 days
+  const noonForecasts = data.list
+    .filter(item => item.dt_txt.includes("12:00:00"))
+    .slice(0, 3);
+
+  noonForecasts.forEach(forecast => {
+    const date = new Date(forecast.dt_txt);
+    const day = date.toLocaleDateString(undefined, { weekday: 'short' });
+    const temp = Math.round(forecast.main.temp);
+    const icon = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+    const description = forecast.weather[0].description;
+
+    const card = document.createElement('div');
+    card.classList.add('forecast-day');
+    card.innerHTML = `
+      <h4>${day}</h4>
+      <img src="${icon}" alt="${description}">
+      <p>${temp}°C</p>
+      <p>${description.charAt(0).toUpperCase() + description.slice(1)}</p>
+    `;
+    forecastContainer.appendChild(card);
+  });
+}
+
+async function fetchForecast() {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    displayForecast(data);
+  } catch (error) {
+    console.error('Error fetching forecast:', error);
+  }
 }
 
 async function fetchMembers() {
@@ -225,46 +293,4 @@ function displaySpotlights(members) {
 function getRandomSpotlights(members) {
   const shuffled = [...members].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 2);
-}
-
-async function fetchForecast() {
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    displayForecast(data);
-  } catch (error) {
-    console.error('Error fetching forecast:', error);
-  }
-}
-
-// 3-Days Forecast
-function displayForecast(data) {
-  const forecastContainer = document.getElementById('forecast');
-  if (!forecastContainer) return; // don't do anything on pages without forecast section
-
-  forecastContainer.innerHTML = '';
-
-  // Filter forecasts for noon for the next 3 days
-  const noonForecasts = data.list
-    .filter(item => item.dt_txt.includes("12:00:00"))
-    .slice(0, 3);
-
-  noonForecasts.forEach(forecast => {
-    const date = new Date(forecast.dt_txt);
-    const day = date.toLocaleDateString(undefined, { weekday: 'short' });
-    const temp = Math.round(forecast.main.temp);
-    const icon = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
-    const description = forecast.weather[0].description;
-
-    const card = document.createElement('div');
-    card.classList.add('forecast-day');
-    card.innerHTML = `
-      <h4>${day}</h4>
-      <img src="${icon}" alt="${description}">
-      <p>${temp}°F</p>
-      <p>${description.charAt(0).toUpperCase() + description.slice(1)}</p>
-    `;
-    forecastContainer.appendChild(card);
-  });
 }
