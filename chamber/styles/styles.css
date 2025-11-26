@@ -36,6 +36,11 @@ nav {
   justify-content: flex-start;
 }
 
+nav a.active {
+  text-decoration: underline;
+  color: #000;
+}
+
 nav ul {
   list-style-type: none;
   display: flex;
