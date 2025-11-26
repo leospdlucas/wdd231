@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-  // Confirmation page info
+// Confirmation page info
 function populateThankYouPage() {
   const params = new URLSearchParams(window.location.search);
   document.getElementById('fname').textContent = params.get('fname') || '(Not provided)';
@@ -143,10 +143,13 @@ async function fetchWeather() {
 
 function displayWeather(data) {
   const weatherInfo = document.getElementById('weather');
+  if (!weatherInfo) return; // don't do anything on pages without weather section
+
   const temp = Math.round(data.main.temp);
-  const description = data.weather.map(item =>
-    item.description.charAt(0).toUpperCase() + item.description.slice(1)
-  ).join(', ');
+  const description = data.weather
+    .map(item => item.description.charAt(0).toUpperCase() + item.description
+      .slice(1)
+    ).join(', ');
 
   weatherInfo.innerHTML = `
     <p>Temperature: ${temp}°F</p>
@@ -156,18 +159,21 @@ function displayWeather(data) {
 
 async function fetchMembers() {
   const spotlightContainer = document.getElementById("spotlight-container");
+  if (!spotlightContainer) return; // don't do anything on pages without spotlight section
 
   try {
     const response = await fetch('data/members.json');
-    const members = await response.json();
+    const data = await response.json();
+    const members = Array.isArray(data) ? data : (data.members || []);
 
-    const spotlightMembers = members.filter(member =>
-      member.membershipLevel === 2 || member.membershipLevel === 3
+    const spotlightMembers = members.filter(member => member.membershipLevel === 2 || member.membershipLevel === 3
     );
 
-    const selected = spotlightMembers.sort(() => 0.5 - Math.random()).slice(0, 3);
+    const selected = spotlightMembers
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3);
 
-    spotlightContainer.innerHTML = ""; 
+    spotlightContainer.innerHTML = "";
 
     selected.forEach(member => {
       const card = document.createElement("div");
@@ -235,10 +241,14 @@ async function fetchForecast() {
 // 3-Days Forecast
 function displayForecast(data) {
   const forecastContainer = document.getElementById('forecast');
+  if (!forecastContainer) return; // don't do anything on pages without forecast section
+
   forecastContainer.innerHTML = '';
 
   // Filter forecasts for noon for the next 3 days
-  const noonForecasts = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
+  const noonForecasts = data.list
+    .filter(item => item.dt_txt.includes("12:00:00"))
+    .slice(0, 3);
 
   noonForecasts.forEach(forecast => {
     const date = new Date(forecast.dt_txt);
