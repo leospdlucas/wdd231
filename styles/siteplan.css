@@ -1,0 +1,232 @@
+:root {
+    --primary: #e3b23c;
+    --accent: #f3a712;
+    --background: #fff3cd;
+    --text: #333333;
+    --dark-bg: #1a1a1a;
+    --dark-text: #fefefe;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid var(--accent);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header h2 {
+    margin: 0.25rem 0 0;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+h2 {
+    margin-top: 0;
+    color: #1a1a1a;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.35rem;
+    font-size: 1.4rem;
+}
+
+h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+p {
+    margin: 0.35rem 0;
+}
+
+ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+li {
+    margin-bottom: 0.3rem;
+}
+
+.inline-label {
+    font-weight: bold;
+}
+
+/* Color scheme presentation */
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.swatch {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.swatch-color {
+    height: 60px;
+}
+
+.swatch-info {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.swatch-primary .swatch-color {
+    background-color: var(--primary);
+}
+
+.swatch-accent .swatch-color {
+    background-color: var(--accent);
+}
+
+.swatch-bg .swatch-color {
+    background-color: var(--background);
+}
+
+.swatch-text .swatch-color {
+    background-color: var(--text);
+    color: #ffffff;
+}
+
+.swatch-dark-bg .swatch-color {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+}
+
+/* Typography presentation */
+.type-samples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.type-sample {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.75rem;
+    background-color: #fffdf5;
+}
+
+.type-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: #1a1a1a;
+}
+
+.type-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.type-body {
+    font-size: 1rem;
+}
+
+/* Wireframes */
+.wireframes-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .wireframes-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.wireframe {
+    border: 2px dashed #999999;
+    border-radius: 8px;
+    padding: 0.75rem;
+    background-color: #fffef5;
+    font-size: 0.85rem;
+}
+
+.wireframe-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.wf-box {
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    padding: 0.25rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    background-color: #ffffff;
+}
+
+.wf-header {
+    background-color: var(--primary);
+    font-weight: bold;
+}
+
+.wf-hero {
+    background-color: var(--accent);
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.wf-main {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.wf-main.mobile {
+    grid-template-columns: 1fr;
+}
+
+.wf-main.desktop {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.wf-footer {
+    background-color: var(--primary);
+    font-size: 0.8rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #555555;
+}
