@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Leonardo Lucas">
+  <meta property="og:title" content="Store • Saint Gabriel Butcher Shop">
+  <meta property="og:description" content="Visit Saint Gabriel Butcher Shop in Nova Iguaçu — address, hours, and contact information.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/showcase_hero.jpg">
+  <meta property="og:url" content="https://example.com/saint-gabriel-butcher-shop">
+<meta name="description" content="Visit Saint Gabriel Butcher Shop in Nova Iguaçu — address, hours, and contact information." />
+
+  <title>Store • Saint Gabriel Butcher Shop</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap"
+    rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <!-- favicon-->
+  <link rel="icon" href="images/faviconcarne.png" />
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="images/img_favicon.png" alt="Saint Gabriel Butcher Shop logo" loading="eager">
+      </div>
+
+      <div class="brand">
+        <h1>Saint Gabriel Butcher Shop</h1>
+      </div>
+
+      <button id="burger" class="burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="store.html">Store</a>
+        <a href="order.html">Order</a>
+      </nav>
+
+      <div class="cart-cta">
+        <span class="small">Cart</span>
+        <span id="cart-count" class="badge" aria-live="polite">0</span>
+        <a id="wa-link" class="btn secondary" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="card">
+      <h1>Visit the Store</h1>
+      <p>Rua Exemplo, 123 — Centro, Nova Iguaçu, RJ</p>
+      <p class="notice" id="open-status" role="status">Checking open status…</p>
+
+      <div class="hours">
+        <p id="weatherBox" class="small">Checking local weather…</p>
+        <span class="label">Mon–Sat:</span>
+        <span>08:00–19:00</span>
+        <span class="label">Sun/Holidays:</span> 
+        <span>Closed</span>
+      </div>
+
+      <p><a href="#" id="map-link">Open on Google Maps</a></p>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <ul>
+        <li>Phone/WhatsApp: 
+          <a id="phone-link" href="#">(21) 99999-9999</a>
+        </li>
+        <li>Instagram: 
+          <a href="#">@saintgabrielbutcher</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  
+
+  <div id="cart-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+      <button type="button" class="modal-close" aria-label="Close">×</button>
+      <h2 id="cart-modal-title">Cart details</h2>
+      <div id="cart-modal-content" class="small"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="meta">
+        <span class="kicker">Saint Gabriel Butcher Shop</span>
+        <span>•</span>
+        <span>Rua Exemplo, 123 — Centro</span>
+        <span>•</span>
+        <span>Nova Iguaçu, RJ</span>
+        <span>•</span>
+        <span><strong>Hours:</strong> Mon–Sat 8:00–19:00</span>
+      </div>
+
+      <p class="small" id="last-updated">Last updated: </p>
+      <p class="small">© <span id="year"></span> Saint Gabriel • All rights reserved.</p>
+
+      <script src="scripts/data.js" defer></script>
+      <script src="scripts/cart.js" defer></script>
+      <script src="scripts/weather.js" defer></script>
+      <script src="scripts/main.js" defer></script>
+    </div>
+  </footer>
+  <script type="module" src="scripts/boot.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Leonardo Lucas">
+  <meta property="og:title" content="Catalog • Saint Gabriel Butcher Shop">
+  <meta property="og:description" content="Explore our butcher catalog with prices per kilogram. Search, filter, and add fresh cuts to your cart.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/showcase_hero.jpg">
+  <meta property="og:url" content="https://example.com/saint-gabriel-butcher-shop">
+<meta name="description" content="Explore our butcher catalog with prices per kilogram. Search, filter, and add fresh cuts to your cart." />
+
+  <title>Catalog • Saint Gabriel Butcher Shop</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap"
+    rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <!-- favicon-->
+  <link rel="icon" href="images/faviconcarne.png" />
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="images/img_favicon.png" alt="Saint Gabriel Butcher Shop logo" loading="eager">
+      </div>
+
+      <div class="brand">
+        <h1>Saint Gabriel Butcher Shop</h1>
+      </div>
+
+      <button id="burger" class="burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="store.html">Store</a>
+        <a href="order.html">Order</a>
+      </nav>
+
+      <div class="cart-cta">
+        <span class="small">Cart</span>
+        <span id="cart-count" class="badge" aria-live="polite">0</span>
+        <a id="wa-link" class="btn secondary" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="card">
+      <h1>Catalog</h1>
+      <p class="small">Prices per kilogram. Choose thickness and add to cart.</p>
+
+      <div class="filters" style="margin:.5rem 0 1rem 0">
+        <input id="q" type="search" placeholder="Search cuts (e.g., picanha)" aria-label="Search products">
+
+        <select id="category" aria-label="Filter by category">
+          <option value="all">All</option>
+          <option value="beef">Beef</option>
+          <option value="poultry">Poultry</option>
+          <option value="pork">Pork</option>
+        </select>
+
+        <select id="availability" aria-label="Availability">
+          <option value="any">Any availability</option>
+          <option value="in">In stock</option>
+          <option value="out">Out of stock</option>
+        </select>
+      </div>
+
+      <div id="productGrid" class="product-grid" aria-live="polite"></div>
+    </section>
+    
+    <script src="scripts/catalog.js" defer></script>
+  </main>
+
+
+  <div id="cart-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+      <button type="button" class="modal-close" aria-label="Close">×</button>
+      <h2 id="cart-modal-title">Cart details</h2>
+      <div id="cart-modal-content" class="small"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="meta">
+        <span class="kicker">Saint Gabriel Butcher Shop</span>
+        <span>•</span>
+        <span>Rua Exemplo, 123 — Centro</span>
+        <span>•</span>
+        <span>Nova Iguaçu, RJ</span>
+        <span>•</span>
+        <span><strong>Hours:</strong> Mon–Sat 8:00–19:00</span>
+      </div>
+
+      <p class="small" id="last-updated">Last updated: </p>
+      <p class="small">© <span id="year"></span> Saint Gabriel • All rights reserved.</p>
+
+      <script src="scripts/data.js" defer></script>
+      <script src="scripts/cart.js" defer></script>
+      <script src="scripts/main.js" defer></script>
+    </div>
+  </footer>
+  <script type="module" src="scripts/boot.js"></script>
+</body>
+
+</html>

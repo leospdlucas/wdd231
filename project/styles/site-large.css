@@ -1,0 +1,7 @@
+/* Large‑screen enhancements */ 
+@media (min-width: 880px){
+  .two-col{grid-template-columns: 1fr 1fr}
+}
+@media (min-width: 1000px){
+  .wireframes{grid-template-columns: 420px 1fr}
+}

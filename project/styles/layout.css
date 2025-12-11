@@ -1,0 +1,12 @@
+.hours {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .35rem .75rem
+}
+
+.bundle {
+    border: 1px dashed #f0c05c;
+    border-radius: 12px;
+    padding: .75rem;
+    background: #fff
+}

@@ -1,0 +1,174 @@
+{
+  "products": [
+    {
+      "id": "picanha",
+      "name": "Picanha",
+      "category": "beef",
+      "priceKg": 89.9,
+      "img": "images/picanha.jpg",
+      "availabilityKg": 12.0,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "fraldinha",
+      "name": "Beef Skirt Steak",
+      "category": "beef",
+      "priceKg": 59.9,
+      "img": "images/skirt-steak.jpg",
+      "availabilityKg": 8.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "alcatra",
+      "name": "Top Sirloin",
+      "category": "beef",
+      "priceKg": 64.9,
+      "img": "images/top-sirloin.jpg",
+      "availabilityKg": 10.0,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "maminha",
+      "name": "Beef Rump",
+      "category": "beef",
+      "priceKg": 54.9,
+      "img": "images/beef-rump.jpg",
+      "availabilityKg": 9.5,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "tbone",
+      "name": "T-Bone Steak",
+      "category": "beef",
+      "priceKg": 79.9,
+      "img": "images/tbone.jpg",
+      "availabilityKg": 6.0,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "costelabovina",
+      "name": "Short Ribs",
+      "category": "beef",
+      "priceKg": 49.9,
+      "img": "images/short-ribs.jpg",
+      "availabilityKg": 18.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "coxadefrango",
+      "name": "Chicken Drumsticks",
+      "category": "poultry",
+      "priceKg": 19.9,
+      "img": "images/chicken-drumsticks.jpg",
+      "availabilityKg": 25.5,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "asadodefrango",
+      "name": "Whole Chicken",
+      "category": "poultry",
+      "priceKg": 18.9,
+      "img": "images/whole-chicken.jpg",
+      "availabilityKg": 22.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "peitodefrango",
+      "name": "Chicken Breast",
+      "category": "poultry",
+      "priceKg": 24.9,
+      "img": "images/chicken-breast.jpg",
+      "availabilityKg": 30.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "asinhadefrango",
+      "name": "Chicken Wings",
+      "category": "poultry",
+      "priceKg": 22.9,
+      "img": "images/chicken-wings.jpg",
+      "availabilityKg": 20.0,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "pernildeporco",
+      "name": "Pork Tenderloin",
+      "category": "pork",
+      "priceKg": 24.9,
+      "img": "images/pork-tenderloin.jpg",
+      "availabilityKg": 40.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "costelasuina",
+      "name": "Pork Ribs",
+      "category": "pork",
+      "priceKg": 29.9,
+      "img": "images/pork-ribs.jpg",
+      "availabilityKg": 16.0,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "bistecasuina",
+      "name": "Pork Chops",
+      "category": "pork",
+      "priceKg": 27.9,
+      "img": "images/pork-chops.jpg",
+      "availabilityKg": 14.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "linguicaartesanal",
+      "name": "Artisan Sausage",
+      "category": "pork",
+      "priceKg": 34.9,
+      "img": "images/italian-sausage.jpg",
+      "availabilityKg": 16.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "lombo-defumado",
+      "name": "Smoked Bacon Slab",
+      "category": "pork",
+      "priceKg": 32.9,
+      "img": "images/bacon-slab.jpg",
+      "availabilityKg": 11.0,
+      "inStock": true,
+      "deal": true
+    },
+    {
+      "id": "linguicadealho",
+      "name": "Garlic Sausage",
+      "category": "pork",
+      "priceKg": 31.9,
+      "img": "images/garlic-sausage.jpg",
+      "availabilityKg": 13.0,
+      "inStock": true,
+      "deal": false
+    },
+    {
+      "id": "carrereordeiro",
+      "name": "Lamb Chops",
+      "category": "beef",
+      "priceKg": 89.9,
+      "img": "images/lamb-chops.jpg",
+      "availabilityKg": 5.0,
+      "inStock": true,
+      "deal": false
+    }
+  ]
+}

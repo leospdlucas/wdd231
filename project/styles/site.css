@@ -1,0 +1,522 @@
+:root {
+  /* Color Scheme — Sao Gabriel Butcher Shop */
+  --brand: #991B1B;
+  /* Meat Red — headings, header background */
+  --accent: #EAB308;
+  /* Amber — highlights, prices, borders */
+  --bg: #FFFBF7;
+  /* Cream — background */
+  --panel: #FFFFFF;
+  /* Cards/panels */
+  --text: #111827;
+  /* Body text */
+  --muted: #6B7280;
+  /* Muted text */
+  --border: #E5E7EB;
+  /* Soft border */
+}
+
+/* Base styles */
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+header {
+  background: var(--brand);
+  color: #fff;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.brand {
+  display: flex;
+  gap: 1rem;
+  align-items: center
+}
+
+.brand h1 {
+  font: 900 1.5rem/1.2 Merriweather, Inter, serif;
+  margin: 0
+}
+
+.brand .logo {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 10px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  /* crops any oversize edges */
+}
+
+.brand .logo img,
+.brand .logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Fallback: if you drop an <img> or <svg> directly inside .brand (no .logo wrapper) */
+.brand>img,
+.brand>svg {
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .brand .logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .brand>img,
+  .brand>svg {
+    max-height: 56px;
+  }
+}
+
+.tag {
+  font-weight: 600;
+  color: #fff;
+  opacity: .9
+}
+
+/* Inline logo */
+.logo {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #ffe27a);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .15)
+}
+
+main {
+  padding: 2rem 0
+}
+
+section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .04)
+}
+
+section h2 {
+  font: 900 1.25rem/1.2 Merriweather, Inter, serif;
+  margin: 0 0 .75rem;
+  color: var(--brand)
+}
+
+p,
+li {
+  max-width: 70ch
+}
+
+.two-col {
+  display: grid;
+  gap: 1rem
+}
+
+/* Color swatches */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem
+}
+
+.swatch {
+  display: flex;
+  gap: .9rem;
+  align-items: center;
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: .9rem
+}
+
+.chip {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, .06)
+}
+
+.chip.brand {
+  background: var(--brand)
+}
+
+.chip.accent {
+  background: var(--accent)
+}
+
+.chip.bg {
+  background: var(--bg)
+}
+
+.usage {
+  font-size: .9rem;
+  color: var(--muted)
+}
+
+/* Typography samples */
+.type-samples h3 {
+  font: 600 1rem/1.3 Inter, sans-serif;
+  color: var(--muted);
+  margin: .5rem 0
+}
+
+.hfont {
+  font: 900 2rem/1.15 Merriweather, Inter, serif;
+  margin: 0 0 .25rem
+}
+
+.pfont {
+  font: 400 1rem/1.6 Inter, sans-serif
+}
+
+/* Wireframes */
+.wireframes {
+  display: grid;
+  gap: 1rem
+}
+
+.wf-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem
+}
+
+.wf-title {
+  font: 700 1rem/1.2 Inter, sans-serif;
+  margin: 0 0 .75rem;
+  color: var(--brand)
+}
+
+/* Device mock shells */
+.device {
+  background: #fff9f2;
+  border: 2px dashed #f1d5a9;
+  border-radius: 20px;
+  padding: .75rem
+}
+
+/* Mobile wireframe layout */
+.mobile {
+  display: grid;
+  gap: .5rem;
+  grid-template-rows: 58px 180px auto auto 56px;
+}
+
+.box {
+  border: 2px dashed #e6bcbc;
+  background: #fff;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #7f1d1d;
+  font: 700 .9rem/1.1 Inter
+}
+
+.box.header {
+  background: linear-gradient(0deg, rgba(234, 179, 8, .15), rgba(255, 255, 255, 1));
+}
+
+.box.hero {
+  background: #fff1f2
+}
+
+.box.data {
+  background: #fffbeb
+}
+
+.box.weather {
+  background: #fef3c7
+}
+
+.box.footer {
+  background: #fff7ed
+}
+
+/* Desktop wireframe layout (structure only; layout columns defined in site-large.css) */
+.desktop {
+  display: grid;
+  gap: .5rem;
+  grid-template-rows: 68px 260px auto 64px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "head head"
+    "hero hero"
+    "data weather"
+    "foot foot";
+}
+
+.desktop .header {
+  grid-area: head
+}
+
+.desktop .hero {
+  grid-area: hero
+}
+
+.desktop .data {
+  grid-area: data;
+  min-height: 180px
+}
+
+.desktop .weather {
+  grid-area: weather;
+  min-height: 180px
+}
+
+.desktop .footer {
+  grid-area: foot
+}
+
+footer {
+  color: var(--muted);
+  font-size: .9rem;
+  padding: 2rem 1rem 3rem
+}
+
+footer .wrap {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem
+}
+
+code {
+  background: #f1f5f9;
+  padding: .15rem .35rem;
+  border-radius: .35rem
+}
+
+/* --- Global helpers --- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: #111;
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+
+.brand a {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+
+.burger {
+  margin-left: auto;
+  font-size: 1.25rem;
+  background: none;
+  border: 1px solid #ccc;
+  padding: .25rem .5rem;
+  border-radius: .5rem;
+}
+
+.nav {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+}
+
+.nav a[aria-current="page"] {
+  background: rgba(0, 0, 0, .05);
+}
+
+@media (min-width: 48rem) {
+  .burger {
+    display: none;
+  }
+
+  .nav {
+    display: flex !important;
+  }
+
+  .nav[hidden] {
+    display: flex !important;
+  }
+}
+
+/* Hero */
+.hero {
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  text-align: center;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Cards grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
+}
+
+.card .media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: linear-gradient(135deg, #f5f5f5, #e9ecef);
+  display: grid;
+  place-items: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card .badge {
+  position: absolute;
+  left: .5rem;
+  top: .5rem;
+  background: #16a34a;
+  color: #fff;
+  border-radius: .5rem;
+  padding: .15rem .5rem;
+  font-size: .75rem;
+}
+
+.card .fav {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: .5rem;
+  padding: .25rem .5rem;
+  cursor: pointer;
+}
+
+.card .fav.on {
+  background: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
+}
+
+.card .fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #555;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: .75rem;
+}
+
+.card .price {
+  font-weight: 700;
+}
+
+.card .price span {
+  font-weight: 400;
+  color: #6b7280;
+  font-size: .9em;
+}
+
+.btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: .5rem;
+  padding: .5rem .9rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  filter: brightness(.9);
+}
+
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: .5rem 0 1rem;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 2rem;
+}
+
+.muted {
+  color: #6b7280;
+}

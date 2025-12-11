@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Leonardo Lucas">
+  <meta property="og:title" content="Review Submitted">
+  <meta property="og:description" content="Review Submitted — Saint Gabriel Butcher Shop in Nova Iguaçu.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/showcase_hero.jpg">
+  <meta property="og:url" content="https://example.com/saint-gabriel-butcher-shop">
+<meta name="description" content="Review Submitted — Saint Gabriel Butcher Shop in Nova Iguaçu.">
+  <title>Review Submitted</title>
+    <link rel="stylesheet" href="styles/form.css" />
+    <style>
+        .receipt {
+            max-width: 56rem;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .08)
+        }
+
+        .receipt h2 {
+            margin-top: 0
+        }
+
+        .kv {
+            display: grid;
+            grid-template-columns: 13rem 1fr;
+            gap: .35rem .75rem
+        }
+
+        .kv b {
+            color: var(--muted)
+        }
+
+        .pill {
+            display: inline-block;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            background: #efe9f7;
+            margin: .2rem .25rem 0 0
+        }
+
+        .count {
+            font-weight: 800
+        }
+    </style>
+  <link rel="icon" href="images/faviconcarne.png" />
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Thank you for your review!</h1>
+    </header>
+
+    <main class="container">
+        <section class="receipt" aria-labelledby="summary-title">
+            <h2 id="summary-title">Submission Summary</h2>
+            <div id="summary" class="kv" role="region" aria-live="polite"></div>
+            <p style="margin-top:1rem">You have submitted <span class="count" id="reviewCount">0</span> review(s) on
+                this device.</p>
+            <p><a href="form.html">Post another review</a></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>©2024 • Product Reviews Demo</p>
+        <p class="muted">Last Modification: <span id="lastmod"></span></p>
+    </footer>
+
+    <script src="scripts/review.js" defer></script>
+</body>
+
+</html>
