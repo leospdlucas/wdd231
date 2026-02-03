@@ -1,60 +1,96 @@
-// Same product list so we can show the chosen product name on the receipt.
-const products = [
-  { id: "pic-kg", name: "Picanha", averagerating: 4.9 },
-  { id: "fral-kg", name: "Fraldinha", averagerating: 4.6 },
-  { id: "ass-kg", name: "Assado de Tira", averagerating: 4.7 },
-  { id: "ling-kg", name: "Linguiça Artesanal", averagerating: 4.5 },
-  { id: "cost-kg", name: "Costelinha Suína", averagerating: 4.8 },
-  { id: "fil-kg", name: "Filé de Peito", averagerating: 4.6 }
-];
+// review.js — Display submitted review data from URL parameters
+(() => {
+  // Product list matching products.json IDs
+  const products = [
+    { id: "picanha", name: "Picanha" },
+    { id: "fraldinha", name: "Beef Skirt Steak" },
+    { id: "alcatra", name: "Top Sirloin" },
+    { id: "maminha", name: "Beef Rump" },
+    { id: "tbone", name: "T-Bone Steak" },
+    { id: "costelabovina", name: "Short Ribs" },
+    { id: "coxadefrango", name: "Chicken Drumsticks" },
+    { id: "asadodefrango", name: "Whole Chicken" },
+    { id: "peitodefrango", name: "Chicken Breast" },
+    { id: "asinhadefrango", name: "Chicken Wings" },
+    { id: "pernildeporco", name: "Pork Tenderloin" },
+    { id: "costelasuina", name: "Pork Ribs" },
+    { id: "bistecasuina", name: "Pork Chops" },
+    { id: "linguicaartesanal", name: "Artisan Sausage" },
+    { id: "lombo-defumado", name: "Smoked Bacon Slab" },
+    { id: "linguicadealho", name: "Garlic Sausage" },
+    { id: "carrereordeiro", name: "Lamb Chops" },
+  ];
 
-const params = new URLSearchParams(location.search);
-const byId = Object.fromEntries(products.map(p => [p.id, p.name]));
+  const params = new URLSearchParams(location.search);
+  const byId = Object.fromEntries(products.map((p) => [p.id, p.name]));
 
-// Pull values sent via GET
-const productId = params.get("product");
-const productName = byId[productId] || "(Unknown product)";
-const rating = params.get("rating");
-const installDate = params.get("installDate");
-const features = params.getAll("features");
-const comments = params.get("comments") || "";
-const username = params.get("username") || "";
+  // Pull values sent via GET
+  const productId = params.get("product");
+  const productName = byId[productId] || "(Unknown product)";
+  const rating = params.get("rating");
+  const installDate = params.get("installDate");
+  const features = params.getAll("features");
+  const comments = params.get("comments") || "";
+  const username = params.get("username") || "";
 
-// Render summary
-const s = document.querySelector("#summary");
-const add = (label, value) => {
-    const b = document.createElement("b");
-    b.textContent = label;
-    const p = document.createElement("p");
+  // Render summary
+  const summaryEl = document.getElementById("summary");
+
+  if (!summaryEl) return;
+
+  function addRow(label, value) {
+    const labelEl = document.createElement("b");
+    labelEl.textContent = label;
+
+    const valueEl = document.createElement("p");
+
     if (Array.isArray(value)) {
-        if (value.length === 0) { p.textContent = "—"; }
-        else {
-            value.forEach(v => {
-                const span = document.createElement("span");
-                span.className = "pill";
-                span.textContent = v;
-                p.appendChild(span);
-            });
-        }
+      if (value.length === 0) {
+        valueEl.textContent = "—";
+      } else {
+        value.forEach((v) => {
+          const span = document.createElement("span");
+          span.className = "pill";
+          span.textContent = v;
+          valueEl.appendChild(span);
+        });
+      }
     } else {
-        p.textContent = value || "—";
+      valueEl.textContent = value || "—";
     }
-    s.appendChild(b); s.appendChild(p);
-};
 
-add("Product", `${productName} (${productId})`);
-add("Overall Rating", rating ? `${rating} / 5` : "");
-add("Date of Installation", installDate);
-add("Useful Features", features);
-add("Written Review", comments);
-add("Your Name", username);
+    summaryEl.appendChild(labelEl);
+    summaryEl.appendChild(valueEl);
+  }
 
-// localStorage review counter
-const KEY = "reviewCount";
-let count = Number(localStorage.getItem(KEY) || 0);
-count += 1;
-localStorage.setItem(KEY, String(count));
-document.querySelector("#reviewCount").textContent = count;
+  // Generate star display
+  function renderStars(num) {
+    const filled = parseInt(num, 10) || 0;
+    const stars = "★".repeat(filled) + "☆".repeat(5 - filled);
+    return `${stars} (${filled}/5)`;
+  }
 
-// Footer "last modified"
-document.querySelector("#lastmod").textContent = new Date(document.lastModified).toLocaleString();
+  addRow("Product", productName);
+  addRow("Overall Rating", rating ? renderStars(rating) : "—");
+  addRow("Date of Purchase", installDate);
+  addRow("Useful Features", features);
+  addRow("Written Review", comments);
+  addRow("Reviewer Name", username || "Anonymous");
+
+  // localStorage review counter
+  const KEY = "reviewCount";
+  let count = Number(localStorage.getItem(KEY) || 0);
+  count += 1;
+  localStorage.setItem(KEY, String(count));
+
+  const countEl = document.getElementById("reviewCount");
+  if (countEl) {
+    countEl.textContent = count;
+  }
+
+  // Footer "last modified"
+  const lastmodEl = document.getElementById("lastmod");
+  if (lastmodEl) {
+    lastmodEl.textContent = new Date(document.lastModified).toLocaleString();
+  }
+})();

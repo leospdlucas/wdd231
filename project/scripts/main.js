@@ -1,103 +1,180 @@
-
-function $(s, r = document) {
-  return r.querySelector(s)
-}
-
-function $all(s, r = document) {
-  return [...r.querySelectorAll(s)]
-}
-
-function updateCartBadge() {
-  const el = $("#cart-count");
-
-  if (!el) return;
-  el.textContent = (JSON.parse(localStorage.getItem("sgb_cart") || "[]")).length;
-}
-
-function setActiveNav() {
-  const page = (location.pathname.split("/").pop() || "index.html");
-  $all(".nav a").forEach(a => {
-    a.setAttribute("aria-current", a.getAttribute("href") === page ? "page" : "false")
-  })
-}
-
-function setFooterMeta() {
-  const y = $("#year");
-  if (y) y.textContent = new Date().getFullYear();
-
-  const u = $("#last-updated");
-  if (u) {
-    const d = new Date();
-    u.textContent = `Last updated: ${d.toLocaleDateString()} ${d.toLocaleTimeString()}`
+// main.js — Core site functionality
+(function () {
+  // Helper functions
+  function $(selector, root = document) {
+    return root.querySelector(selector);
   }
-}
 
-function setOpenStatus() {
-  const el = $("#open-status");
-  if (!el) return; const n = new Date();
+  function $all(selector, root = document) {
+    return [...root.querySelectorAll(selector)];
+  }
 
-  const day = n.getDay(); const m = n.getHours() * 60 + n.getMinutes();
-  const open = 8 * 60, close = 19 * 60;
-  let msg = "Closed today.";
+  // Update cart badge count
+  function updateCartBadge() {
+    const cartData = JSON.parse(localStorage.getItem("sgb_cart") || "[]");
+    const count = cartData.length;
 
-  if (day >= 1 && day <= 6) {
-    if (m >= open && m <= close) {
-      msg = "We are OPEN now (Mon–Sat 08:00–19:00)."
+    // Update main badge
+    const badge = $("#cart-count");
+    if (badge) {
+      badge.textContent = count;
+    }
 
-    } else if (m < open) {
-      msg = `Closed now. Opens in ~${Math.max(1, Math.floor((open - m) / 60))}h`;
-
-    } else {
-      msg = "Closed for today. See you tomorrow!"
+    // Update modal button badge if it exists
+    const modalBadge = $("#cart-count-btn");
+    if (modalBadge) {
+      modalBadge.textContent = count;
     }
   }
 
-  el.textContent = msg;
-}
-function initContactLinks() {
-  const phoneLink = $("#phone-link");
+  // Set active navigation link based on current page
+  function setActiveNav() {
+    const currentPage = location.pathname.split("/").pop() || "index.html";
 
-  if (phoneLink) {
-    phoneLink.href = "https://wa.me/5521999999999";
-    phoneLink.textContent = "(21) 99999-9999"
+    $all(".nav a").forEach((link) => {
+      const href = link.getAttribute("href");
+      const isActive = href === currentPage;
+      link.setAttribute("aria-current", isActive ? "page" : "false");
+    });
   }
 
-  const map = $("#map-link");
-  if (map) {
-    const q = encodeURIComponent("Saint Gabriel Butcher Shop, Nova Iguaçu RJ");
-    map.href = `https://www.google.com/maps/search/?api=1&query=${q}`;
-  }
-}
+  // Set footer metadata (year and last updated)
+  function setFooterMeta() {
+    const yearEl = $("#year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-function buildWaMessageFromCart() {
-  const items = JSON.parse(localStorage.getItem("sgb_cart") || "[]");
-  if (items.length === 0) return encodeURIComponent("Hello! I would like to ask about prices and availability.");
-
-  const lines = items.map(it => { const p = (typeof PRODUCTS !== "undefined") ? PRODUCTS.find(p => p.id === it.id) : null; const name = p ? p.name : it.id; return `${name} — ${it.qtyKg.toFixed(2)}kg (${it.thickness})`; }).join("\n");
-  const total = (typeof cartTotal === "function") ? cartTotal() : 0;
-
-  return encodeURIComponent(`Hello! I'd like to order:\n${lines}\nTotal: R$ ${total.toFixed(2)}`);
-}
-function initWhatsAppButtons() {
-  const wa = "5521999999999";
-  const make = () => `https://wa.me/${wa}/?text=${buildWaMessageFromCart()}`;
-  const top = $("#wa-link");
-
-  if (top) top.href = make();
-
-  const cta = $("#wa-cta");
-  if (cta) cta.href = make();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof loadProducts === "function") {
-    loadProducts();
+    const lastUpdatedEl = $("#last-updated");
+    if (lastUpdatedEl) {
+      const now = new Date();
+      lastUpdatedEl.textContent = `Last updated: ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+    }
   }
 
-  setActiveNav();
-  setFooterMeta();
-  setOpenStatus();
-  initContactLinks();
-  updateCartBadge();
-  initWhatsAppButtons();
-});
+  // Set store open/closed status
+  function setOpenStatus() {
+    const statusEl = $("#open-status");
+    if (!statusEl) return;
+
+    const now = new Date();
+    const day = now.getDay(); // 0 = Sunday
+    const minutes = now.getHours() * 60 + now.getMinutes();
+
+    const openTime = 8 * 60; // 08:00
+    const closeTime = 19 * 60; // 19:00
+
+    let message = "Closed today.";
+
+    // Monday (1) through Saturday (6)
+    if (day >= 1 && day <= 6) {
+      if (minutes >= openTime && minutes < closeTime) {
+        const minutesLeft = closeTime - minutes;
+        const hoursLeft = Math.floor(minutesLeft / 60);
+        const minsLeft = minutesLeft % 60;
+
+        if (hoursLeft > 0) {
+          message = `We are OPEN now! Closes in ${hoursLeft}h ${minsLeft}min`;
+        } else {
+          message = `We are OPEN now! Closes in ${minsLeft} minutes`;
+        }
+      } else if (minutes < openTime) {
+        const minutesUntil = openTime - minutes;
+        const hoursUntil = Math.floor(minutesUntil / 60);
+
+        message = `Closed now. Opens in ${Math.max(1, hoursUntil)} hour(s)`;
+      } else {
+        message = "Closed for today. See you tomorrow!";
+      }
+    }
+
+    statusEl.textContent = message;
+  }
+
+  // Initialize contact links
+  function initContactLinks() {
+    const phoneNumber = "5521999999999";
+
+    const phoneLink = $("#phone-link");
+    if (phoneLink) {
+      phoneLink.href = `https://wa.me/${phoneNumber}`;
+      phoneLink.textContent = "(21) 99999-9999";
+    }
+
+    const mapLink = $("#map-link");
+    if (mapLink) {
+      const query = encodeURIComponent(
+        "Saint Gabriel Butcher Shop, Nova Iguaçu RJ"
+      );
+      mapLink.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+    }
+  }
+
+  // Build WhatsApp message from cart contents
+  function buildWaMessageFromCart() {
+    const items = JSON.parse(localStorage.getItem("sgb_cart") || "[]");
+
+    if (items.length === 0) {
+      return encodeURIComponent(
+        "Hello! I would like to ask about prices and availability."
+      );
+    }
+
+    const lines = items
+      .map((item) => {
+        const product =
+          typeof PRODUCTS !== "undefined"
+            ? PRODUCTS.find((p) => p.id === item.id)
+            : null;
+        const name = product ? product.name : item.id;
+        return `${name} — ${item.qtyKg.toFixed(2)}kg (${item.thickness})`;
+      })
+      .join("\n");
+
+    const total = typeof cartTotal === "function" ? cartTotal() : 0;
+
+    return encodeURIComponent(
+      `Hello! I'd like to order:\n${lines}\nTotal: R$ ${total.toFixed(2)}`
+    );
+  }
+
+  // Initialize WhatsApp buttons
+  function initWhatsAppButtons() {
+    const phoneNumber = "5521999999999";
+
+    function getWhatsAppUrl() {
+      return `https://wa.me/${phoneNumber}/?text=${buildWaMessageFromCart()}`;
+    }
+
+    const topLink = $("#wa-link");
+    if (topLink) {
+      topLink.href = getWhatsAppUrl();
+    }
+
+    const ctaLink = $("#wa-cta");
+    if (ctaLink) {
+      ctaLink.href = getWhatsAppUrl();
+    }
+  }
+
+  // Initialize everything when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    // Load products if the function exists
+    if (typeof loadProducts === "function") {
+      loadProducts().then(() => {
+        initWhatsAppButtons();
+      });
+    } else {
+      initWhatsAppButtons();
+    }
+
+    setActiveNav();
+    setFooterMeta();
+    setOpenStatus();
+    initContactLinks();
+    updateCartBadge();
+  });
+
+  // Expose updateCartBadge globally for other scripts
+  window.updateCartBadge = updateCartBadge;
+})();

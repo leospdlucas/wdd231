@@ -4,26 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Leonardo Lucas">
+  <meta name="author" content="Leonardo Lucas">
   <meta property="og:title" content="Home • Saint Gabriel Butcher Shop">
   <meta property="og:description" content="Saint Gabriel Butcher Shop — fresh beef, pork, and poultry in Nova Iguaçu. Browse deals and order by WhatsApp.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/showcase_hero.jpg">
-  <meta property="og:url" content="https://example.com/saint-gabriel-butcher-shop">
-<meta name="description" content="Saint Gabriel Butcher Shop — fresh beef, pork, and poultry in Nova Iguaçu. Browse deals and order by WhatsApp." />
+  <meta property="og:image" content="images/acougue-hero.png">
+  <meta property="og:url" content="https://leospdlucas.github.io/wdd231/project/index.html">
+  <meta name="description" content="Saint Gabriel Butcher Shop — fresh beef, pork, and poultry in Nova Iguaçu. Browse deals and order by WhatsApp.">
 
   <title>Home • Saint Gabriel Butcher Shop</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <!-- favicon-->
-  <link rel="icon" href="images/faviconcarne.png" />
+  <link rel="icon" href="images/faviconcarne.png">
 </head>
 
 <body>
@@ -58,8 +56,8 @@
     <section class="hero">
       <div class="overlay container">
         <div class="card" style="background:rgba(0,0,0,.35);border:0;color:#fff;text-align:center">
-          <h1>Promotional Banner</h1>
-          <p>Save on barbecue bundles this week. Tap “Catalog” to browse fresh cuts.</p>
+          <h2>Promotional Banner</h2>
+          <p>Save on barbecue bundles this week. Tap "Catalog" to browse fresh cuts.</p>
           <a class="btn" href="catalog.html">Shop Deals</a>
         </div>
       </div>
@@ -68,6 +66,7 @@
     <section class="home-layout" aria-label="Featured and Bundles">
       <div class="home-left">
         <div class="card">
+          <h2>Featured Products</h2>
           <div class="filters" style="margin-bottom:.75rem">
             <input id="q" type="search" placeholder="Search cuts (e.g., picanha)" aria-label="Search products">
 
@@ -93,20 +92,19 @@
 
         <div class="card">
           <h2>Delivery</h2>
-          <p>In-city delivery from R$ 8 • Minimum order R$ 50</p><a href="order.html" class="btn">Start Order</a>
+          <p>In-city delivery from R$ 8 • Minimum order R$ 50</p>
+          <a href="order.html" class="btn">Start Order</a>
         </div>
 
         <div class="card">
-          <h2>WhatsApp</h2><a id="wa-cta" class="btn secondary" href="#" target="_blank" rel="noopener">Open
-            WhatsApp</a>
+          <h2>WhatsApp</h2>
+          <a id="wa-cta" class="btn secondary" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
         </div>
       </aside>
     </section>
-
-    <script src="scripts/catalog.js" defer></script>
   </main>
 
-
+  <!-- Cart Modal -->
   <div id="cart-modal" class="modal" aria-hidden="true">
     <div class="modal-backdrop" data-close-modal></div>
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
@@ -131,12 +129,16 @@
       <p class="small"><a href="attributions.html">Attributions</a></p>
       <p class="small" id="last-updated">Last updated: </p>
       <p class="small">© <span id="year"></span> Saint Gabriel • All rights reserved.</p>
-
-      <script src="scripts/data.js" defer></script>
-      <script src="scripts/cart.js" defer></script>
-      <script src="scripts/main.js" defer></script>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/data.js" defer></script>
+  <script src="scripts/cart.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/modal.js" defer></script>
+  <script src="scripts/catalog.js" defer></script>
   <script type="module" src="scripts/boot.js"></script>
 </body>
 

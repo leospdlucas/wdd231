@@ -177,6 +177,11 @@ textarea:focus {
     padding: 2rem 1rem 3rem;
 }
 
+.site-footer a {
+    color: #fff;
+    text-decoration: underline
+}
+
 .site-footer .muted {
     opacity: .9
 }

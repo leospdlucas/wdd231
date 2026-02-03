@@ -4,26 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Leonardo Lucas">
+  <meta name="author" content="Leonardo Lucas">
   <meta property="og:title" content="Catalog • Saint Gabriel Butcher Shop">
   <meta property="og:description" content="Explore our butcher catalog with prices per kilogram. Search, filter, and add fresh cuts to your cart.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/showcase_hero.jpg">
   <meta property="og:url" content="https://example.com/saint-gabriel-butcher-shop">
-<meta name="description" content="Explore our butcher catalog with prices per kilogram. Search, filter, and add fresh cuts to your cart." />
+  <meta name="description" content="Explore our butcher catalog with prices per kilogram. Search, filter, and add fresh cuts to your cart.">
 
   <title>Catalog • Saint Gabriel Butcher Shop</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <!-- favicon-->
-  <link rel="icon" href="images/faviconcarne.png" />
+  <link rel="icon" href="images/faviconcarne.png">
 </head>
 
 <body>
@@ -78,11 +76,9 @@
 
       <div id="productGrid" class="product-grid" aria-live="polite"></div>
     </section>
-    
-    <script src="scripts/catalog.js" defer></script>
   </main>
 
-
+  <!-- Cart Modal -->
   <div id="cart-modal" class="modal" aria-hidden="true">
     <div class="modal-backdrop" data-close-modal></div>
     <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
@@ -104,14 +100,19 @@
         <span><strong>Hours:</strong> Mon–Sat 8:00–19:00</span>
       </div>
 
+      <p class="small"><a href="attributions.html">Attributions</a></p>
       <p class="small" id="last-updated">Last updated: </p>
       <p class="small">© <span id="year"></span> Saint Gabriel • All rights reserved.</p>
-
-      <script src="scripts/data.js" defer></script>
-      <script src="scripts/cart.js" defer></script>
-      <script src="scripts/main.js" defer></script>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/data.js" defer></script>
+  <script src="scripts/cart.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/nav.js" defer></script>
+  <script src="scripts/modal.js" defer></script>
+  <script src="scripts/catalog.js" defer></script>
   <script type="module" src="scripts/boot.js"></script>
 </body>
 

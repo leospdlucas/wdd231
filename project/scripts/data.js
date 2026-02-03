@@ -1,3 +1,5 @@
+// data.js — Product data loader with Fetch API and error handling
+
 const PRODUCTS_URL = "data/products.json";
 
 let PRODUCTS = [];
@@ -11,10 +13,13 @@ function loadProducts() {
   productsReady = (async () => {
     try {
       const res = await fetch(PRODUCTS_URL);
+      
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
       }
+      
       const data = await res.json();
+      
       if (Array.isArray(data.products)) {
         PRODUCTS = data.products;
       } else if (Array.isArray(data)) {
@@ -26,6 +31,7 @@ function loadProducts() {
       console.error("Failed to load products.json", err);
       PRODUCTS = [];
     }
+    
     return PRODUCTS;
   })();
 

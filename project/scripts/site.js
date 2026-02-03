@@ -1,7 +1,8 @@
-// Year + last modified
+// site.js — Year + last modified for siteplan
 document.addEventListener('DOMContentLoaded', () => {
-  const y = document.getElementById('currentyear');
-  if (y) y.textContent = new Date().getFullYear();
-  const lm = document.getElementById('lm');
-  if (lm) lm.textContent = `Last updated: ${document.lastModified}`;
+  const yearEl = document.getElementById('currentyear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  
+  const lmEl = document.getElementById('lm');
+  if (lmEl) lmEl.textContent = `Last updated: ${document.lastModified}`;
 });

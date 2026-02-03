@@ -2,122 +2,122 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Leonardo Lucas">
-  <meta property="og:title" content="Product Review">
-  <meta property="og:description" content="Product Review — Saint Gabriel Butcher Shop in Nova Iguaçu.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Leonardo Lucas">
+  <meta property="og:title" content="Product Review • Saint Gabriel Butcher Shop">
+  <meta property="og:description" content="Leave a product review for Saint Gabriel Butcher Shop in Nova Iguaçu.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/showcase_hero.jpg">
   <meta property="og:url" content="https://example.com/saint-gabriel-butcher-shop">
-<meta name="description" content="Product Review — Saint Gabriel Butcher Shop in Nova Iguaçu.">
-  <title>Product Review</title>
-    <link rel="stylesheet" href="styles/form.css" />
-  <link rel="icon" href="images/faviconcarne.png" />
+  <meta name="description" content="Leave a product review for Saint Gabriel Butcher Shop in Nova Iguaçu.">
+  <title>Product Review • Saint Gabriel Butcher Shop</title>
+  <link rel="stylesheet" href="styles/form.css">
+  <link rel="icon" href="images/faviconcarne.png">
 </head>
 
 <body>
-    <header class="site-header">
-        <h1>Product Review</h1>
-    </header>
+  <header class="site-header">
+    <h1>Product Review</h1>
+  </header>
 
-    <main class="container">
-        <!-- method GET + action to confirmation page -->
-        <form id="reviewForm" method="get" action="review.html" novalidate>
-            <!-- Product Name -->
-            <fieldset>
-                <legend>Product Name</legend>
-                <label class="sr-only" for="product">Choose a Product</label>
-                <select id="product" name="product" required>
-                    <option value="" selected disabled>Select a Product ...</option>
-                    <!-- Options injected by scripts/form.js -->
-                </select>
-            </fieldset>
+  <main class="container">
+    <!-- method GET + action to confirmation page -->
+    <form id="reviewForm" method="get" action="review.html" novalidate>
+      <!-- Product Name -->
+      <fieldset>
+        <legend>Product Name</legend>
+        <label class="sr-only" for="product">Choose a Product</label>
+        <select id="product" name="product" required>
+          <option value="" selected disabled>Select a Product ...</option>
+          <!-- Options injected by scripts/form.js -->
+        </select>
+      </fieldset>
 
-            <!-- Overall Rating -->
-            <fieldset>
-                <legend>Overall Rating</legend>
-                <div class="star-rating" role="radiogroup" aria-label="Overall Rating">
-                    <!-- Radios are ordered 5..1 for easier CSS fill; all share the SAME name -->
-                    <input type="radio" id="star5" name="rating" value="5" required />
-                    <label for="star5" title="5 stars">★</label>
+      <!-- Overall Rating -->
+      <fieldset>
+        <legend>Overall Rating</legend>
+        <div class="star-rating" role="radiogroup" aria-label="Overall Rating">
+          <!-- Radios are ordered 5..1 for easier CSS fill; all share the SAME name -->
+          <input type="radio" id="star5" name="rating" value="5" required>
+          <label for="star5" title="5 stars">★</label>
 
-                    <input type="radio" id="star4" name="rating" value="4" />
-                    <label for="star4" title="4 stars">★</label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4" title="4 stars">★</label>
 
-                    <input type="radio" id="star3" name="rating" value="3" />
-                    <label for="star3" title="3 stars">★</label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3" title="3 stars">★</label>
 
-                    <input type="radio" id="star2" name="rating" value="2" />
-                    <label for="star2" title="2 stars">★</label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2" title="2 stars">★</label>
 
-                    <input type="radio" id="star1" name="rating" value="1" />
-                    <label for="star1" title="1 star">★</label>
-                </div>
-            </fieldset>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1" title="1 star">★</label>
+        </div>
+      </fieldset>
 
-            <!-- Date of Installation -->
-            <fieldset>
-                <legend>Date of Installation</legend>
-                <label class="sr-only" for="installDate">Installation Date</label>
-                <input id="installDate" name="installDate" type="date" required />
-            </fieldset>
+      <!-- Date of Purchase -->
+      <fieldset>
+        <legend>Date of Purchase</legend>
+        <label class="sr-only" for="installDate">Purchase Date</label>
+        <input id="installDate" name="installDate" type="date" required>
+      </fieldset>
 
-            <!-- Useful Features (check all that apply) -->
-            <fieldset>
-                <legend>Which features did you find useful? <span class="hint">(Check all that apply)</span></legend>
+      <!-- Useful Features (check all that apply) -->
+      <fieldset>
+        <legend>Which features did you find useful? <span class="hint">(Check all that apply)</span></legend>
 
-                <div class="checks">
-                    <div class="check">
-                        <input id="durability" type="checkbox" name="features" value="Durability" />
-                        <label for="durability">Durability</label>
-                    </div>
+        <div class="checks">
+          <div class="check">
+            <input id="freshness" type="checkbox" name="features" value="Freshness">
+            <label for="freshness">Freshness</label>
+          </div>
 
-                    <div class="check">
-                        <input id="ease" type="checkbox" name="features" value="Ease of Use" />
-                        <label for="ease">Ease of Use</label>
-                    </div>
+          <div class="check">
+            <input id="quality" type="checkbox" name="features" value="Quality">
+            <label for="quality">Quality</label>
+          </div>
 
-                    <div class="check">
-                        <input id="performance" type="checkbox" name="features" value="Performance" />
-                        <label for="performance">Performance</label>
-                    </div>
+          <div class="check">
+            <input id="price" type="checkbox" name="features" value="Price">
+            <label for="price">Price</label>
+          </div>
 
-                    <div class="check">
-                        <input id="design" type="checkbox" name="features" value="Design" />
-                        <label for="design">Design</label>
-                    </div>
-                </div>
-            </fieldset>
+          <div class="check">
+            <input id="packaging" type="checkbox" name="features" value="Packaging">
+            <label for="packaging">Packaging</label>
+          </div>
+        </div>
+      </fieldset>
 
-            <!-- Written Review (optional) -->
-            <fieldset>
-                <legend>Written Review <span class="hint">(Optional)</span></legend>
-                <label class="sr-only" for="comments">Your review</label>
-                <textarea id="comments" name="comments" rows="7"
-                    placeholder="Share details you think would help other buyers..."></textarea>
-            </fieldset>
+      <!-- Written Review (optional) -->
+      <fieldset>
+        <legend>Written Review <span class="hint">(Optional)</span></legend>
+        <label class="sr-only" for="comments">Your review</label>
+        <textarea id="comments" name="comments" rows="7" placeholder="Share details you think would help other buyers..."></textarea>
+      </fieldset>
 
-            <!-- Your Name (optional) -->
-            <fieldset>
-                <legend>Your Name <span class="hint">(Optional)</span></legend>
-                <label class="sr-only" for="username">Your Name</label>
-                <input id="username" name="username" type="text" maxlength="60" placeholder="Enter your name. . ." />
-            </fieldset>
+      <!-- Your Name (optional) -->
+      <fieldset>
+        <legend>Your Name <span class="hint">(Optional)</span></legend>
+        <label class="sr-only" for="username">Your Name</label>
+        <input id="username" name="username" type="text" maxlength="60" placeholder="Enter your name...">
+      </fieldset>
 
-            <!-- Submit -->
-            <div class="actions">
-                <input type="submit" value="Post Review" />
-            </div>
-        </form>
-    </main>
+      <!-- Submit -->
+      <div class="actions">
+        <input type="submit" value="Post Review">
+      </div>
+    </form>
+  </main>
 
-    <footer class="site-footer">
-        <p>©2024 • Product Reviews Demo</p>
-        <p class="muted">Last Modification: <span id="lastmod"></span></p>
-    </footer>
+  <footer class="site-footer">
+    <p><a href="index.html">← Back to Shop</a> | <a href="attributions.html">Attributions</a></p>
+    <p>© 2025 Saint Gabriel Butcher Shop</p>
+    <p class="muted">Last Modification: <span id="lastmod"></span></p>
+  </footer>
 
-    <script src="scripts/form.js" defer></script>
+  <script src="scripts/form.js" defer></script>
 </body>
 
 </html>
