@@ -7,22 +7,28 @@
   <meta name="description"
     content="Welcome to the New Timbuktu Chamber of Commerce – connecting local businesses, events, and opportunities.">
   <meta name="author" content="Leo Lucas">
-  <title>Discover</title>
+  <title>Discover | New Timbuktu Chamber of Commerce</title>
 
   <!-- Open Graph meta tags for Facebook -->
   <meta property="og:title" content="New Timbuktu Chamber of Commerce – Home">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://leospdlucas.github.io/BYU/wdd231/images/flag_brazil.png">
+  <meta property="og:image" content="https://leospdlucas.github.io/wdd231/chamber/images/timbuktu.png">  
   <meta property="og:url" content="https://leospdlucas.github.io/BYU/wdd231/">
+  <meta property="og:description" content="Discover the vibrant community of New Timbuktu – explore local highlights, featured businesses, and resources for visitors and residents.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="icon" href="images/chamber-favicon2.ico">
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/medium.css" media="(min-width: 641px)">
   <link rel="stylesheet" href="styles/large.css" media="(min-width: 1025px)">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
 
+  <script src="scripts/chamber.js"></script>
+  <script type="module" src="scripts/discover.js"></script>
 </head>
 
 <body>
@@ -50,6 +56,7 @@
     <button id="theme-toggle" title="Toggle dark mode">🌓
       <i class="fas fa-adjust"></i>
     </button>
+
   </header>
 
   <main>
@@ -81,11 +88,6 @@
     </div>
   </footer>
 
-  <script src="scripts/chamber.js"></script>
-  <script type="module" src="scripts/discover.js"></script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 
 </html>
