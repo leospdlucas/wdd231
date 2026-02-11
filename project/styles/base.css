@@ -219,7 +219,7 @@ header {
 
 .hero {
     margin: 1rem 0;
-    background: url("../images/acougue_hero.jpg") center/cover no-repeat;
+    background: url("../images/showcase_hero.jpg") center/cover no-repeat;
     border: 1px solid #f0eae8;
     border-radius: var(--radius);
     min-height: 280px;
