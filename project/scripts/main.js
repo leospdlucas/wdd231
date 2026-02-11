@@ -1,12 +1,12 @@
 // main.js — Core site functionality
 (function () {
   // Helper functions
-  function $(selector, root = document) {
-    return root.querySelector(selector);
+  function $(selector, root = document) { 
+    return root.querySelector(selector); 
   }
 
-  function $all(selector, root = document) {
-    return [...root.querySelectorAll(selector)];
+  function $All(selector, root = document) { 
+    return [...root.querySelectorAll(selector)]; 
   }
 
   // Update cart badge count
